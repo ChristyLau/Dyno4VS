@@ -22,7 +22,7 @@ A software developed to recognize target-complex binding modes based on interact
 
 ```$ git clone https://github.com/ChristyLau/thesis.git```
 
-```$ conda env create -f requirement.yaml```
+```$ conda env update --file requirement.yaml```
 
 
 ## Workflow
