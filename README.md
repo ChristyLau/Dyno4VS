@@ -1,5 +1,23 @@
-# thesis
+# Reveal Hidden Interaction Pattern and Seperate Pharmacophore for each Bind State
 
-TODO:
-- time sequence of points: to help decide if there are 2 clusters or just due to flexation
-- visualization for 4D data: noise are grey
+some introduction
+
+- **Demo:** [ZIKV_Protease](https://github.com/digitalegarage/open-source-guidelines/blob/master/README-template.md)
+
+## Requirement
+- cnnclustering
+- sklearn
+- matplotlib
+- mdanalysis
+- numpy
+- pandas
+- tqdm
+- os
+
+
+## Output
+
+
+## Workflow
+
+## 
