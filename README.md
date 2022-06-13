@@ -30,10 +30,20 @@ For each binding mode
 
 ![image](https://github.com/ChristyLau/thesis/blob/main/fig/points_with_noise.png) 
 - Dynophore in PML file (noise dropped)
+
+![image](https://github.com/ChristyLau/thesis/blob/main/fig/dyno_without_noise.png) 
 - Dynophore and associated points in PML file (noise dropped)
+
+![image](https://github.com/ChristyLau/thesis/blob/main/fig/dyno%2Bpoints_without_noise.png)  
 - MD trajectory
 
 ## Analysis
 - Bar code plot: frames belong to each cluster
+
+![image](https://github.com/ChristyLau/thesis/blob/main/fig/bar_code.png)  
 - Stacked bar plot: frequency of each state within each superfeature for all binding modes
+
+![image](https://github.com/ChristyLau/thesis/blob/main/fig/stacked_bar.png)  
 - Radar plot: frequency of superfeature for all binding modes
+
+![image](https://github.com/ChristyLau/thesis/blob/main/fig/radar.png)  
