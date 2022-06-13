@@ -2,7 +2,9 @@
 
 some introduction
 
-- **Demo:** [ZIKV_Protease](https://github.com/digitalegarage/open-source-guidelines/blob/master/README-template.md)
+- **Demo:** [ZIKV_Protease](https://github.com/ChristyLau/Demo-ZIKV-time.ipynb)
+
+
 
 ## Requirement
 - cnnclustering
