@@ -1,10 +1,16 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<pharmacophore name="cluster_pharmacophore_points_0" pharmacophoreType="LIGAND_SCOUT">
-  <featureCloud name="H" featureColor="ffc20e" featureId="H_1" optional="false" disabled="false" weight="1.0" orig_superfeature="H[2947,2939,2948,2940,2945,2938]" envPatner="{'ALA_132_B[2348,2351]': [2348, 2351], 'TYR_161_B[2755,2756,2757,2758,2759,2760]': [2755, 2756, 2757, 2758, 2759, 2760], 'VAL_154_B[2649,2650,2651]': [2649, 2650, 2651], 'VAL_155_B[2665,2666,2667]': [2665, 2666, 2667]}">
-    <position x3="3.5114566285046727" y3="-13.469848070093457" z3="1.8592631970404987" tolerance="1.5" />
+<pharmacophore name="dynophore_dyno" id="pharmacophore" pharmacophoreType="LIGAND_SCOUT">
+  <featureCloud name="H" featureColor="ffc20e" optional="false" disabled="false" weight="1.0" id="feature0">
+    <position x3="3.506093550579151" y3="-13.45628134131274" z3="1.868030746718147" />
+    <additionalPoint x3="1.237983" y3="-9.967942" z3="2.357443" weight="1.0" />
+    <additionalPoint x3="1.734779" y3="-10.383826" z3="3.450986" weight="1.0" />
+    <additionalPoint x3="1.545951" y3="-10.362788" z3="2.972849" weight="1.0" />
     <additionalPoint x3="3.376213" y3="-11.712728" z3="2.961032" weight="1.0" />
     <additionalPoint x3="3.865915" y3="-12.012056" z3="3.179381" weight="1.0" />
+    <additionalPoint x3="4.357019" y3="-11.313844" z3="3.692396" weight="1.0" />
+    <additionalPoint x3="4.232673" y3="-11.312865" z3="3.580539" weight="1.0" />
+    <additionalPoint x3="3.592841" y3="-11.377991" z3="4.314239" weight="1.0" />
     <additionalPoint x3="3.19163" y3="-11.707991" z3="3.61961" weight="1.0" />
+    <additionalPoint x3="3.266276" y3="-10.956652" z3="4.425812" weight="1.0" />
     <additionalPoint x3="4.001391" y3="-12.821233" z3="2.910973" weight="1.0" />
     <additionalPoint x3="4.076639" y3="-11.964587" z3="3.280518" weight="1.0" />
     <additionalPoint x3="3.990641" y3="-12.12962" z3="3.160853" weight="1.0" />
@@ -340,6 +346,7 @@
     <additionalPoint x3="3.506102" y3="-13.484464" z3="1.805089" weight="1.0" />
     <additionalPoint x3="3.613189" y3="-13.876821" z3="1.890677" weight="1.0" />
     <additionalPoint x3="3.981337" y3="-13.552598" z3="2.197627" weight="1.0" />
+    <additionalPoint x3="4.021303" y3="-14.845555" z3="1.958328" weight="1.0" />
     <additionalPoint x3="3.705708" y3="-14.328056" z3="1.314619" weight="1.0" />
     <additionalPoint x3="3.315801" y3="-13.89549" z3="2.136425" weight="1.0" />
     <additionalPoint x3="3.494841" y3="-13.599982" z3="1.853113" weight="1.0" />
@@ -639,6 +646,7 @@
     <additionalPoint x3="3.684074" y3="-13.692787" z3="1.300145" weight="1.0" />
     <additionalPoint x3="3.687847" y3="-13.809501" z3="1.747852" weight="1.0" />
     <additionalPoint x3="4.231335" y3="-14.271489" z3="0.890198" weight="1.0" />
+    <additionalPoint x3="5.019524" y3="-13.683598" z3="1.067923" weight="1.0" />
     <additionalPoint x3="4.224409" y3="-14.240735" z3="1.748856" weight="1.0" />
     <additionalPoint x3="4.314647" y3="-13.935328" z3="1.583276" weight="1.0" />
     <additionalPoint x3="3.466981" y3="-13.828458" z3="1.522768" weight="1.0" />
@@ -1150,6 +1158,8 @@
     <additionalPoint x3="2.092622" y3="-12.506066" z3="1.629531" weight="1.0" />
     <additionalPoint x3="1.981654" y3="-12.371567" z3="1.359866" weight="1.0" />
     <additionalPoint x3="1.879496" y3="-12.707288" z3="1.327466" weight="1.0" />
+    <additionalPoint x3="1.193319" y3="-13.09735" z3="2.050642" weight="1.0" />
+    <additionalPoint x3="1.479169" y3="-13.297004" z3="1.934715" weight="1.0" />
     <additionalPoint x3="1.513855" y3="-12.855165" z3="1.621811" weight="1.0" />
     <additionalPoint x3="1.574131" y3="-12.804832" z3="1.706779" weight="1.0" />
     <additionalPoint x3="1.970664" y3="-12.813282" z3="1.527853" weight="1.0" />
@@ -1287,11 +1297,18 @@
     <additionalPoint x3="3.056222" y3="-12.960213" z3="1.13235" weight="1.0" />
     <additionalPoint x3="3.412837" y3="-12.684842" z3="1.732038" weight="1.0" />
   </featureCloud>
-  <featureCloud name="H" featureColor="ffc20e" featureId="H_2" optional="false" disabled="false" weight="1.0" orig_superfeature="H[2946]" envPatner="{'TYR_161_B[2755,2756,2757,2758,2759,2760]': [2755, 2756, 2757, 2758, 2759, 2760], 'ALA_132_B[2348,2351]': [2348, 2351], 'TYR_150_B[2601,2602,2603,2604,2605,2606]': [2601, 2602, 2603, 2604, 2605, 2606], 'VAL_154_B[2649,2650,2651]': [2649, 2650, 2651], 'PRO_131_B[2333,2334,2337,2338,2339]': [2333, 2334, 2337, 2338, 2339], 'VAL_155_B[2665,2666,2667]': [2665, 2666, 2667], 'THR_134_B[2368,2370]': [2368, 2370]}">
-    <position x3="5.0890454420567925" y3="-15.866607029930929" z3="2.4255969201841903" tolerance="1.5" />
+  <featureCloud name="H" featureColor="ffc20e" optional="false" disabled="false" weight="1.0" id="feature1">
+    <position x3="5.085178426717557" y3="-15.844409731297711" z3="2.443111390076336" />
+    <additionalPoint x3="2.0782" y3="-10.053067" z3="5.157244" weight="1.0" />
+    <additionalPoint x3="2.453527" y3="-11.09579" z3="6.19682" weight="1.0" />
+    <additionalPoint x3="2.391054" y3="-11.023385" z3="5.728796" weight="1.0" />
     <additionalPoint x3="5.069849" y3="-13.093187" z3="4.872824" weight="1.0" />
     <additionalPoint x3="5.723025" y3="-13.627926" z3="4.815733" weight="1.0" />
+    <additionalPoint x3="6.645364" y3="-12.600105" z3="5.006737" weight="1.0" />
+    <additionalPoint x3="6.530385" y3="-12.485554" z3="4.970808" weight="1.0" />
+    <additionalPoint x3="5.448195" y3="-12.592348" z3="6.384477" weight="1.0" />
     <additionalPoint x3="4.953997" y3="-13.489974" z3="5.14702" weight="1.0" />
+    <additionalPoint x3="5.010803" y3="-12.137539" z3="6.478252" weight="1.0" />
     <additionalPoint x3="5.598693" y3="-14.636901" z3="4.562085" weight="1.0" />
     <additionalPoint x3="5.664495" y3="-13.566691" z3="5.155288" weight="1.0" />
     <additionalPoint x3="6.086706" y3="-13.369212" z3="4.890482" weight="1.0" />
@@ -2593,23 +2610,30 @@
     <additionalPoint x3="4.552143" y3="-15.453677" z3="1.671008" weight="1.0" />
     <additionalPoint x3="5.113306" y3="-14.944819" z3="2.537488" weight="1.0" />
   </featureCloud>
-  <featureCloud name="PI" featureColor="272799" featureId="PI_3" optional="false" disabled="false" weight="1.0" orig_superfeature="PI[2933]" envPatner="{'ASP_75_B[1493,1494,1495]': [1493, 1494, 1495], 'ASP_83_A[495,496,497]': [495, 496, 497]}">
-    <position x3="-3.1439255694816053" y3="-11.641780125" z3="-1.3604704417056857" tolerance="1.5" />
+  <featureCloud name="PI" featureColor="272799" optional="false" disabled="false" weight="1.0" id="feature2">
+    <position x3="-3.1402081290396344" y3="-11.611801428353658" z3="-1.3949336260022867" />
+    <additionalPoint x3="-3.4759386" y3="-12.145832" z3="-3.86977" weight="1.0" />
     <additionalPoint x3="-3.1709433" y3="-11.772644" z3="-3.084904" weight="1.0" />
+    <additionalPoint x3="-3.076369" y3="-11.799407" z3="-3.632671" weight="1.0" />
     <additionalPoint x3="-2.9992416" y3="-12.190602" z3="-2.1340775" weight="1.0" />
     <additionalPoint x3="-2.7528796" y3="-12.181388" z3="-1.2817788" weight="1.0" />
+    <additionalPoint x3="-2.3321376" y3="-11.025588" z3="-0.9813459" weight="1.0" />
     <additionalPoint x3="-2.718468" y3="-11.164927" z3="-0.69104886" weight="1.0" />
+    <additionalPoint x3="-2.3783646" y3="-10.820673" z3="-1.2137529" weight="1.0" />
+    <additionalPoint x3="-2.910918" y3="-10.370268" z3="-1.4275019" weight="1.0" />
     <additionalPoint x3="-2.3877835" y3="-10.878896" z3="-1.5000296" weight="1.0" />
     <additionalPoint x3="-3.4638534" y3="-12.029059" z3="-1.4098923" weight="1.0" />
     <additionalPoint x3="-2.866807" y3="-12.009629" z3="-0.595999" weight="1.0" />
     <additionalPoint x3="-3.1783047" y3="-12.38471" z3="-0.95389205" weight="1.0" />
     <additionalPoint x3="-3.173997" y3="-11.809514" z3="-0.8712461" weight="1.0" />
+    <additionalPoint x3="-3.145585" y3="-12.469607" z3="-0.6543348" weight="1.0" />
     <additionalPoint x3="-2.8881152" y3="-12.192107" z3="-0.8279604" weight="1.0" />
     <additionalPoint x3="-3.0661001" y3="-12.277891" z3="-1.433202" weight="1.0" />
     <additionalPoint x3="-2.1079175" y3="-11.363187" z3="-1.2448066" weight="1.0" />
     <additionalPoint x3="-2.2400093" y3="-11.159902" z3="-1.0672717" weight="1.0" />
     <additionalPoint x3="-2.1591084" y3="-11.24209" z3="-1.0665088" weight="1.0" />
     <additionalPoint x3="-2.5939686" y3="-11.565874" z3="-0.58484685" weight="1.0" />
+    <additionalPoint x3="-2.5182028" y3="-10.695557" z3="-2.054471" weight="1.0" />
     <additionalPoint x3="-2.4919674" y3="-11.0252075" z3="-2.1720183" weight="1.0" />
     <additionalPoint x3="-2.4069486" y3="-11.210329" z3="-1.8106148" weight="1.0" />
     <additionalPoint x3="-2.4756827" y3="-11.412394" z3="-1.1150267" weight="1.0" />
@@ -2617,6 +2641,7 @@
     <additionalPoint x3="-2.627179" y3="-11.31365" z3="-0.9838637" weight="1.0" />
     <additionalPoint x3="-2.4136443" y3="-11.166916" z3="-1.7538934" weight="1.0" />
     <additionalPoint x3="-2.8387146" y3="-11.449088" z3="-1.7167047" weight="1.0" />
+    <additionalPoint x3="-2.0388741" y3="-11.493453" z3="-1.5120083" weight="1.0" />
     <additionalPoint x3="-2.5763073" y3="-12.080317" z3="-0.98109293" weight="1.0" />
     <additionalPoint x3="-2.6956978" y3="-11.723026" z3="-0.39730632" weight="1.0" />
     <additionalPoint x3="-2.454733" y3="-11.234109" z3="-0.9589938" weight="1.0" />
@@ -2649,10 +2674,19 @@
     <additionalPoint x3="-3.149319" y3="-11.399963" z3="-1.436487" weight="1.0" />
     <additionalPoint x3="-2.9147844" y3="-11.809658" z3="-0.9200022" weight="1.0" />
     <additionalPoint x3="-2.9367971" y3="-11.5624895" z3="-1.5084271" weight="1.0" />
+    <additionalPoint x3="-2.1635985" y3="-11.464534" z3="-2.0411062" weight="1.0" />
+    <additionalPoint x3="-2.6482937" y3="-11.988569" z3="-2.4433756" weight="1.0" />
+    <additionalPoint x3="-2.2254598" y3="-11.277205" z3="-1.6958957" weight="1.0" />
+    <additionalPoint x3="-2.7295332" y3="-11.758664" z3="-2.881168" weight="1.0" />
+    <additionalPoint x3="-3.0648165" y3="-11.521025" z3="-3.2194061" weight="1.0" />
+    <additionalPoint x3="-2.985969" y3="-11.320614" z3="-3.6724238" weight="1.0" />
+    <additionalPoint x3="-2.964168" y3="-11.286029" z3="-3.6902637" weight="1.0" />
+    <additionalPoint x3="-2.632729" y3="-11.249308" z3="-3.6477547" weight="1.0" />
     <additionalPoint x3="-2.8195848" y3="-11.238151" z3="-3.1656647" weight="1.0" />
     <additionalPoint x3="-2.8939571" y3="-11.334902" z3="-2.0861816" weight="1.0" />
     <additionalPoint x3="-3.3395824" y3="-11.920431" z3="-1.6224823" weight="1.0" />
     <additionalPoint x3="-2.5880675" y3="-11.3899355" z3="-1.3759165" weight="1.0" />
+    <additionalPoint x3="-2.2260866" y3="-11.848547" z3="-1.758131" weight="1.0" />
     <additionalPoint x3="-2.6784213" y3="-11.366817" z3="-1.1175919" weight="1.0" />
     <additionalPoint x3="-2.682518" y3="-11.784168" z3="-0.87726593" weight="1.0" />
     <additionalPoint x3="-2.8778343" y3="-12.157826" z3="-1.0900307" weight="1.0" />
@@ -2699,6 +2733,7 @@
     <additionalPoint x3="-2.7261944" y3="-11.843203" z3="-0.52554893" weight="1.0" />
     <additionalPoint x3="-3.5017931" y3="-12.0968685" z3="-1.0786824" weight="1.0" />
     <additionalPoint x3="-3.7146997" y3="-11.926732" z3="-1.3080006" weight="1.0" />
+    <additionalPoint x3="-3.657899" y3="-12.559551" z3="-1.4794564" weight="1.0" />
     <additionalPoint x3="-3.1425555" y3="-12.00097" z3="-0.88129497" weight="1.0" />
     <additionalPoint x3="-2.9339738" y3="-11.896882" z3="-1.6897774" weight="1.0" />
     <additionalPoint x3="-3.0565772" y3="-12.332297" z3="-1.4499731" weight="1.0" />
@@ -2727,10 +2762,12 @@
     <additionalPoint x3="-2.5880435" y3="-11.58631" z3="-0.61823344" weight="1.0" />
     <additionalPoint x3="-2.575396" y3="-11.954626" z3="-0.59992576" weight="1.0" />
     <additionalPoint x3="-2.7783084" y3="-11.947702" z3="-0.8531749" weight="1.0" />
+    <additionalPoint x3="-2.6583743" y3="-12.394614" z3="-0.30368567" weight="1.0" />
     <additionalPoint x3="-3.0722916" y3="-11.828539" z3="-0.8594173" weight="1.0" />
     <additionalPoint x3="-3.0169232" y3="-11.980865" z3="-0.65572166" weight="1.0" />
     <additionalPoint x3="-2.9046497" y3="-12.138297" z3="-0.8762932" weight="1.0" />
     <additionalPoint x3="-3.0333924" y3="-11.9189205" z3="-1.3813767" weight="1.0" />
+    <additionalPoint x3="-2.8783903" y3="-12.367997" z3="-0.32685876" weight="1.0" />
     <additionalPoint x3="-2.518655" y3="-11.310197" z3="-0.58425415" weight="1.0" />
     <additionalPoint x3="-2.9617727" y3="-11.7665825" z3="-0.68505454" weight="1.0" />
     <additionalPoint x3="-2.3762982" y3="-11.65978" z3="-0.8456539" weight="1.0" />
@@ -2751,6 +2788,8 @@
     <additionalPoint x3="-2.532496" y3="-11.68699" z3="-0.82344437" weight="1.0" />
     <additionalPoint x3="-2.8019185" y3="-11.639249" z3="-0.6932683" weight="1.0" />
     <additionalPoint x3="-2.667908" y3="-11.853778" z3="-1.0192213" weight="1.0" />
+    <additionalPoint x3="-2.3547564" y3="-12.218017" z3="-0.59120417" weight="1.0" />
+    <additionalPoint x3="-2.343004" y3="-12.107271" z3="-0.5864556" weight="1.0" />
     <additionalPoint x3="-2.412908" y3="-11.440045" z3="-1.1154969" weight="1.0" />
     <additionalPoint x3="-2.5730357" y3="-11.730864" z3="-1.1185436" weight="1.0" />
     <additionalPoint x3="-2.713801" y3="-11.901582" z3="-1.3080757" weight="1.0" />
@@ -2765,10 +2804,14 @@
     <additionalPoint x3="-2.5157423" y3="-12.011311" z3="-1.0189047" weight="1.0" />
     <additionalPoint x3="-2.7080164" y3="-11.568502" z3="-0.84925866" weight="1.0" />
     <additionalPoint x3="-2.6214738" y3="-11.404728" z3="-1.306184" weight="1.0" />
+    <additionalPoint x3="-2.6583133" y3="-12.172268" z3="-2.007187" weight="1.0" />
     <additionalPoint x3="-2.6638622" y3="-11.791542" z3="-1.4615874" weight="1.0" />
     <additionalPoint x3="-2.2558794" y3="-11.5107975" z3="-1.1876826" weight="1.0" />
+    <additionalPoint x3="-1.9922558" y3="-12.326036" z3="-1.0185709" weight="1.0" />
+    <additionalPoint x3="-1.9546509" y3="-11.485932" z3="-1.1656363" weight="1.0" />
     <additionalPoint x3="-2.430756" y3="-11.607101" z3="-0.9723828" weight="1.0" />
     <additionalPoint x3="-2.80474" y3="-12.100025" z3="-1.2307769" weight="1.0" />
+    <additionalPoint x3="-2.0055695" y3="-11.635986" z3="-1.0837215" weight="1.0" />
     <additionalPoint x3="-2.3429484" y3="-11.688261" z3="-0.96860623" weight="1.0" />
     <additionalPoint x3="-2.5136704" y3="-11.788954" z3="-1.1623685" weight="1.0" />
     <additionalPoint x3="-2.8660831" y3="-11.876106" z3="-1.4552652" weight="1.0" />
@@ -2793,6 +2836,7 @@
     <additionalPoint x3="-2.8210702" y3="-11.670806" z3="-0.914038" weight="1.0" />
     <additionalPoint x3="-3.0534563" y3="-12.088587" z3="-0.9434735" weight="1.0" />
     <additionalPoint x3="-3.1238613" y3="-11.867201" z3="-0.94484335" weight="1.0" />
+    <additionalPoint x3="-3.0659177" y3="-11.373943" z3="-0.19068491" weight="1.0" />
     <additionalPoint x3="-3.0504434" y3="-11.614637" z3="-0.64037246" weight="1.0" />
     <additionalPoint x3="-2.9218814" y3="-11.4559555" z3="-0.6024214" weight="1.0" />
     <additionalPoint x3="-3.269983" y3="-11.688945" z3="-1.1428485" weight="1.0" />
@@ -2800,6 +2844,8 @@
     <additionalPoint x3="-3.0144432" y3="-11.76345" z3="-0.7468369" weight="1.0" />
     <additionalPoint x3="-3.1324396" y3="-11.723398" z3="-0.9293834" weight="1.0" />
     <additionalPoint x3="-2.9388669" y3="-11.764222" z3="-0.6917905" weight="1.0" />
+    <additionalPoint x3="-2.5355139" y3="-11.270278" z3="-0.18651342" weight="1.0" />
+    <additionalPoint x3="-2.8892756" y3="-11.120326" z3="-0.41365087" weight="1.0" />
     <additionalPoint x3="-2.8089979" y3="-11.383101" z3="-0.5231721" weight="1.0" />
     <additionalPoint x3="-3.0788288" y3="-11.715014" z3="-0.60285974" weight="1.0" />
     <additionalPoint x3="-2.793769" y3="-11.858884" z3="-0.9230015" weight="1.0" />
@@ -2837,6 +2883,7 @@
     <additionalPoint x3="-2.4379416" y3="-11.68545" z3="-0.7596326" weight="1.0" />
     <additionalPoint x3="-2.377747" y3="-11.719683" z3="-0.74338007" weight="1.0" />
     <additionalPoint x3="-2.6399899" y3="-11.956798" z3="-1.3399158" weight="1.0" />
+    <additionalPoint x3="-2.2242932" y3="-11.498246" z3="-0.45188093" weight="1.0" />
     <additionalPoint x3="-2.4497352" y3="-11.718398" z3="-0.70559025" weight="1.0" />
     <additionalPoint x3="-2.4651818" y3="-11.907763" z3="-1.2272987" weight="1.0" />
     <additionalPoint x3="-3.2436426" y3="-11.902279" z3="-0.70263433" weight="1.0" />
@@ -2890,6 +2937,7 @@
     <additionalPoint x3="-3.0012426" y3="-11.73933" z3="-1.6600189" weight="1.0" />
     <additionalPoint x3="-3.1486697" y3="-11.209728" z3="-1.7870674" weight="1.0" />
     <additionalPoint x3="-2.6303577" y3="-11.408994" z3="-0.78041744" weight="1.0" />
+    <additionalPoint x3="-2.2229748" y3="-10.573395" z3="-0.51745415" weight="1.0" />
     <additionalPoint x3="-2.487167" y3="-11.060256" z3="-1.1374826" weight="1.0" />
     <additionalPoint x3="-2.8602018" y3="-11.014735" z3="-1.4224224" weight="1.0" />
     <additionalPoint x3="-3.3801103" y3="-11.677676" z3="-1.8336172" weight="1.0" />
@@ -2973,6 +3021,7 @@
     <additionalPoint x3="-2.8628073" y3="-11.248385" z3="-0.73177624" weight="1.0" />
     <additionalPoint x3="-2.7887836" y3="-11.421945" z3="-1.3803139" weight="1.0" />
     <additionalPoint x3="-2.934801" y3="-11.10912" z3="-0.85711765" weight="1.0" />
+    <additionalPoint x3="-2.7746978" y3="-10.8462" z3="-0.5854778" weight="1.0" />
     <additionalPoint x3="-3.0447907" y3="-11.50873" z3="-1.1291199" weight="1.0" />
     <additionalPoint x3="-3.0563517" y3="-11.949452" z3="-0.785656" weight="1.0" />
     <additionalPoint x3="-2.7097974" y3="-11.6672735" z3="-1.2661629" weight="1.0" />
@@ -3044,6 +3093,7 @@
     <additionalPoint x3="-2.9185686" y3="-11.56019" z3="-1.2651815" weight="1.0" />
     <additionalPoint x3="-2.9941301" y3="-11.278256" z3="-1.216836" weight="1.0" />
     <additionalPoint x3="-2.5984764" y3="-11.415529" z3="-0.594718" weight="1.0" />
+    <additionalPoint x3="-2.7227006" y3="-10.885502" z3="-0.56231785" weight="1.0" />
     <additionalPoint x3="-2.4910116" y3="-11.457741" z3="-0.8026228" weight="1.0" />
     <additionalPoint x3="-3.0902567" y3="-11.650929" z3="-1.8725548" weight="1.0" />
     <additionalPoint x3="-3.074852" y3="-11.333576" z3="-1.3320265" weight="1.0" />
@@ -3092,6 +3142,9 @@
     <additionalPoint x3="-2.8772779" y3="-11.473799" z3="-1.1393862" weight="1.0" />
     <additionalPoint x3="-2.7928" y3="-12.020721" z3="-1.0615292" weight="1.0" />
     <additionalPoint x3="-2.2377677" y3="-11.5879" z3="-0.56202316" weight="1.0" />
+    <additionalPoint x3="-2.449102" y3="-11.640995" z3="-0.12182331" weight="1.0" />
+    <additionalPoint x3="-2.0653095" y3="-10.950489" z3="-1.14569" weight="1.0" />
+    <additionalPoint x3="-2.1055174" y3="-10.984167" z3="-0.7696352" weight="1.0" />
     <additionalPoint x3="-3.0634184" y3="-11.704726" z3="-1.423253" weight="1.0" />
     <additionalPoint x3="-2.9866362" y3="-11.835814" z3="-0.9624138" weight="1.0" />
     <additionalPoint x3="-3.1742973" y3="-11.623766" z3="-1.0696344" weight="1.0" />
@@ -3121,8 +3174,13 @@
     <additionalPoint x3="-2.84519" y3="-11.269022" z3="-0.8307657" weight="1.0" />
     <additionalPoint x3="-2.2641993" y3="-11.541244" z3="-0.8716707" weight="1.0" />
     <additionalPoint x3="-2.9351559" y3="-11.827393" z3="-0.7781677" weight="1.0" />
+    <additionalPoint x3="-2.3629103" y3="-11.329688" z3="-0.31002617" weight="1.0" />
+    <additionalPoint x3="-2.3349524" y3="-11.133958" z3="-0.432518" weight="1.0" />
+    <additionalPoint x3="-2.1511927" y3="-11.31432" z3="-0.3960266" weight="1.0" />
     <additionalPoint x3="-3.0530405" y3="-11.990887" z3="-0.67085934" weight="1.0" />
     <additionalPoint x3="-2.5449305" y3="-11.169402" z3="-0.7233629" weight="1.0" />
+    <additionalPoint x3="-2.369279" y3="-11.103013" z3="0.09204006" weight="1.0" />
+    <additionalPoint x3="-2.1782827" y3="-11.169067" z3="-0.53442955" weight="1.0" />
     <additionalPoint x3="-3.116459" y3="-11.392935" z3="-1.2226515" weight="1.0" />
     <additionalPoint x3="-2.3329773" y3="-11.31081" z3="-1.0789452" weight="1.0" />
     <additionalPoint x3="-2.9364738" y3="-11.423094" z3="-1.1625528" weight="1.0" />
@@ -3156,6 +3214,7 @@
     <additionalPoint x3="-2.70579" y3="-11.277659" z3="-0.6758423" weight="1.0" />
     <additionalPoint x3="-2.7544765" y3="-11.869322" z3="-0.8048792" weight="1.0" />
     <additionalPoint x3="-2.8597937" y3="-11.813038" z3="-0.5711498" weight="1.0" />
+    <additionalPoint x3="-2.5672946" y3="-11.096991" z3="-0.3031931" weight="1.0" />
     <additionalPoint x3="-2.892939" y3="-11.674284" z3="-0.39298344" weight="1.0" />
     <additionalPoint x3="-3.7163706" y3="-12.30662" z3="-1.2492104" weight="1.0" />
     <additionalPoint x3="-3.4329119" y3="-11.795874" z3="-1.6644669" weight="1.0" />
@@ -3179,6 +3238,7 @@
     <additionalPoint x3="-2.7165837" y3="-11.653001" z3="-0.66359234" weight="1.0" />
     <additionalPoint x3="-3.0858269" y3="-12.206705" z3="-1.0419884" weight="1.0" />
     <additionalPoint x3="-2.8688135" y3="-11.9192505" z3="-0.3716383" weight="1.0" />
+    <additionalPoint x3="-2.5086646" y3="-12.045019" z3="-0.19979095" weight="1.0" />
     <additionalPoint x3="-2.5942154" y3="-11.747349" z3="-0.5742178" weight="1.0" />
     <additionalPoint x3="-2.6739469" y3="-11.717991" z3="-0.76169777" weight="1.0" />
     <additionalPoint x3="-2.813447" y3="-11.915955" z3="-0.958807" weight="1.0" />
@@ -3306,6 +3366,7 @@
     <additionalPoint x3="-3.620854" y3="-11.888674" z3="-1.2742853" weight="1.0" />
     <additionalPoint x3="-3.0589159" y3="-11.486679" z3="-1.2875109" weight="1.0" />
     <additionalPoint x3="-2.8341007" y3="-11.277534" z3="-0.91389084" weight="1.0" />
+    <additionalPoint x3="-2.8450594" y3="-11.095337" z3="-0.44792366" weight="1.0" />
     <additionalPoint x3="-3.2566476" y3="-11.536252" z3="-0.7601528" weight="1.0" />
     <additionalPoint x3="-3.2144427" y3="-11.874134" z3="-0.81596947" weight="1.0" />
     <additionalPoint x3="-3.4017575" y3="-11.852438" z3="-1.256774" weight="1.0" />
@@ -3475,6 +3536,7 @@
     <additionalPoint x3="-2.9064994" y3="-12.098601" z3="-1.4441495" weight="1.0" />
     <additionalPoint x3="-3.1923904" y3="-11.497382" z3="-1.5676672" weight="1.0" />
     <additionalPoint x3="-3.29003" y3="-11.971899" z3="-1.1364288" weight="1.0" />
+    <additionalPoint x3="-3.856482" y3="-12.545797" z3="-1.7731576" weight="1.0" />
     <additionalPoint x3="-3.8220906" y3="-12.144668" z3="-1.2893648" weight="1.0" />
     <additionalPoint x3="-3.1804643" y3="-12.017889" z3="-0.91295767" weight="1.0" />
     <additionalPoint x3="-3.4945064" y3="-12.292672" z3="-1.487762" weight="1.0" />
@@ -3632,6 +3694,7 @@
     <additionalPoint x3="-3.1842394" y3="-12.2711935" z3="-0.9470997" weight="1.0" />
     <additionalPoint x3="-3.4314108" y3="-11.782142" z3="-1.0414596" weight="1.0" />
     <additionalPoint x3="-3.4075663" y3="-11.889748" z3="-0.92630863" weight="1.0" />
+    <additionalPoint x3="-4.013951" y3="-12.293274" z3="-1.193686" weight="1.0" />
     <additionalPoint x3="-3.444392" y3="-11.603052" z3="-1.1255655" weight="1.0" />
     <additionalPoint x3="-3.7551308" y3="-11.742454" z3="-1.1983805" weight="1.0" />
     <additionalPoint x3="-3.3699439" y3="-11.677011" z3="-0.9896846" weight="1.0" />
@@ -3667,6 +3730,11 @@
     <additionalPoint x3="-3.3162942" y3="-11.303541" z3="-1.460763" weight="1.0" />
     <additionalPoint x3="-3.354355" y3="-11.594049" z3="-1.0944967" weight="1.0" />
     <additionalPoint x3="-2.8110826" y3="-11.231586" z3="-1.0462613" weight="1.0" />
+    <additionalPoint x3="-1.9846323" y3="-10.989824" z3="-0.05638218" weight="1.0" />
+    <additionalPoint x3="-2.2142575" y3="-10.593798" z3="0.100774765" weight="1.0" />
+    <additionalPoint x3="-2.2969494" y3="-10.770998" z3="-0.25368834" weight="1.0" />
+    <additionalPoint x3="-2.6980634" y3="-10.644258" z3="-0.021122932" weight="1.0" />
+    <additionalPoint x3="-2.6140769" y3="-11.314534" z3="-0.22982883" weight="1.0" />
     <additionalPoint x3="-3.3966486" y3="-11.901168" z3="-1.4204774" weight="1.0" />
     <additionalPoint x3="-2.7680953" y3="-11.605414" z3="-0.8614516" weight="1.0" />
     <additionalPoint x3="-2.9592354" y3="-11.799778" z3="-0.9342575" weight="1.0" />
@@ -3688,20 +3756,69 @@
     <additionalPoint x3="-3.039272" y3="-11.597985" z3="-1.3381629" weight="1.0" />
     <additionalPoint x3="-3.279069" y3="-11.577993" z3="-0.69071865" weight="1.0" />
     <additionalPoint x3="-2.954959" y3="-11.923246" z3="-0.8539157" weight="1.0" />
+    <additionalPoint x3="-2.4433208" y3="-10.844854" z3="-0.6604364" weight="1.0" />
+    <additionalPoint x3="-1.9381734" y3="-10.802938" z3="-0.052138805" weight="1.0" />
+    <additionalPoint x3="-2.2610707" y3="-10.615998" z3="-0.013651371" weight="1.0" />
+    <additionalPoint x3="-1.9966202" y3="-10.384043" z3="0.050494194" weight="1.0" />
+    <additionalPoint x3="-2.2367315" y3="-10.783729" z3="0.062240124" weight="1.0" />
     <additionalPoint x3="-2.8792176" y3="-11.428348" z3="-0.91716385" weight="1.0" />
     <additionalPoint x3="-3.323782" y3="-11.803359" z3="-1.5868542" weight="1.0" />
     <additionalPoint x3="-3.153669" y3="-11.322532" z3="-1.3883185" weight="1.0" />
     <additionalPoint x3="-3.2421114" y3="-11.886215" z3="-1.1906283" weight="1.0" />
     <additionalPoint x3="-3.27937" y3="-11.837116" z3="-1.492209" weight="1.0" />
+    <additionalPoint x3="-3.8124425" y3="-12.456976" z3="-1.7305179" weight="1.0" />
     <additionalPoint x3="-2.293764" y3="-11.4544525" z3="-1.5297194" weight="1.0" />
+    <additionalPoint x3="-2.3560085" y3="-10.609448" z3="-1.4748647" weight="1.0" />
+    <additionalPoint x3="-2.472363" y3="-10.733033" z3="-1.0113794" weight="1.0" />
+    <additionalPoint x3="-2.7100012" y3="-10.7339945" z3="-2.3743696" weight="1.0" />
+    <additionalPoint x3="-2.4528763" y3="-11.0193405" z3="-2.5437083" weight="1.0" />
+    <additionalPoint x3="-2.691376" y3="-11.324345" z3="-3.2404149" weight="1.0" />
+    <additionalPoint x3="-2.652628" y3="-11.460458" z3="-3.4920459" weight="1.0" />
+    <additionalPoint x3="-3.092619" y3="-10.643297" z3="-3.1608353" weight="1.0" />
     <additionalPoint x3="-3.6991882" y3="-11.39366" z3="-3.1146107" weight="1.0" />
     <additionalPoint x3="-3.1549053" y3="-10.650095" z3="-2.9455886" weight="1.0" />
+    <additionalPoint x3="-3.1418552" y3="-11.241108" z3="-3.4274416" weight="1.0" />
     <additionalPoint x3="-4.4358196" y3="-12.129311" z3="-1.9111919" weight="1.0" />
+    <additionalPoint x3="-3.9242153" y3="-11.43066" z3="-3.0530882" weight="1.0" />
+    <additionalPoint x3="-3.6753998" y3="-10.6849575" z3="-3.0844984" weight="1.0" />
+    <additionalPoint x3="-3.9168406" y3="-11.3174305" z3="-3.0100446" weight="1.0" />
+    <additionalPoint x3="-4.092972" y3="-11.654114" z3="-3.0209036" weight="1.0" />
+    <additionalPoint x3="-3.8912277" y3="-11.628994" z3="-3.4205818" weight="1.0" />
+    <additionalPoint x3="-4.0497427" y3="-11.094387" z3="-3.0963697" weight="1.0" />
     <additionalPoint x3="-3.8170643" y3="-10.999657" z3="-3.0028105" weight="1.0" />
+    <additionalPoint x3="-3.425418" y3="-11.389784" z3="-3.493246" weight="1.0" />
+    <additionalPoint x3="-3.829011" y3="-11.551323" z3="-3.1591215" weight="1.0" />
+    <additionalPoint x3="-3.6705933" y3="-11.2417145" z3="-3.3014345" weight="1.0" />
+    <additionalPoint x3="-3.077921" y3="-10.519466" z3="-2.5074558" weight="1.0" />
+    <additionalPoint x3="-2.947236" y3="-10.503164" z3="-2.9764328" weight="1.0" />
+    <additionalPoint x3="-2.9726772" y3="-10.926338" z3="-3.4087772" weight="1.0" />
+    <additionalPoint x3="-3.3363008" y3="-10.751907" z3="-3.3062801" weight="1.0" />
+    <additionalPoint x3="-2.8497372" y3="-10.700039" z3="-3.2779412" weight="1.0" />
+    <additionalPoint x3="-3.5896668" y3="-11.234369" z3="-3.2037654" weight="1.0" />
+    <additionalPoint x3="-3.8437967" y3="-11.050598" z3="-3.5871072" weight="1.0" />
+    <additionalPoint x3="-4.5466785" y3="-11.826366" z3="-2.229527" weight="1.0" />
+    <additionalPoint x3="-4.168018" y3="-11.766201" z3="-2.477982" weight="1.0" />
+    <additionalPoint x3="-4.5219293" y3="-12.014118" z3="-2.7222595" weight="1.0" />
+    <additionalPoint x3="-4.665739" y3="-11.956156" z3="-2.1383529" weight="1.0" />
     <additionalPoint x3="-4.141768" y3="-11.727699" z3="-2.1849718" weight="1.0" />
+    <additionalPoint x3="-4.3604" y3="-12.2224045" z3="-1.8209558" weight="1.0" />
+    <additionalPoint x3="-4.062916" y3="-11.902035" z3="-2.7767425" weight="1.0" />
+    <additionalPoint x3="-4.324092" y3="-11.72723" z3="-2.5823784" weight="1.0" />
     <additionalPoint x3="-4.335435" y3="-11.790764" z3="-1.8843136" weight="1.0" />
+    <additionalPoint x3="-4.071679" y3="-11.816481" z3="-1.6034236" weight="1.0" />
+    <additionalPoint x3="-4.1599054" y3="-11.601077" z3="-1.210186" weight="1.0" />
+    <additionalPoint x3="-4.237399" y3="-11.723501" z3="-1.6863532" weight="1.0" />
     <additionalPoint x3="-3.6949377" y3="-12.325794" z3="-2.1873627" weight="1.0" />
     <additionalPoint x3="-3.756773" y3="-12.475752" z3="-2.1379228" weight="1.0" />
+    <additionalPoint x3="-4.2833824" y3="-11.916674" z3="-2.6810179" weight="1.0" />
+    <additionalPoint x3="-4.0347342" y3="-12.277988" z3="-1.440177" weight="1.0" />
+    <additionalPoint x3="-4.090617" y3="-11.881594" z3="-1.5455232" weight="1.0" />
+    <additionalPoint x3="-4.21988" y3="-11.652077" z3="-1.5834403" weight="1.0" />
+    <additionalPoint x3="-4.612706" y3="-12.027849" z3="-1.8494973" weight="1.0" />
+    <additionalPoint x3="-4.563462" y3="-11.965813" z3="-1.7733904" weight="1.0" />
+    <additionalPoint x3="-4.320534" y3="-12.55266" z3="-2.6148534" weight="1.0" />
+    <additionalPoint x3="-4.312378" y3="-12.205334" z3="-2.8642287" weight="1.0" />
+    <additionalPoint x3="-2.5239258" y3="-10.792653" z3="-2.0028257" weight="1.0" />
     <additionalPoint x3="-2.6955109" y3="-11.787681" z3="-1.9962138" weight="1.0" />
     <additionalPoint x3="-3.128334" y3="-12.055061" z3="-2.1830056" weight="1.0" />
     <additionalPoint x3="-2.270152" y3="-11.116919" z3="-1.9458846" weight="1.0" />
@@ -3711,7 +3828,11 @@
     <additionalPoint x3="-3.5135517" y3="-10.876202" z3="-2.0704708" weight="1.0" />
     <additionalPoint x3="-3.4392948" y3="-10.774261" z3="-1.9978542" weight="1.0" />
     <additionalPoint x3="-2.613021" y3="-10.468758" z3="-1.4228535" weight="1.0" />
+    <additionalPoint x3="-2.5087767" y3="-10.333206" z3="-1.3632042" weight="1.0" />
+    <additionalPoint x3="-2.6972456" y3="-10.514506" z3="-1.183003" weight="1.0" />
     <additionalPoint x3="-3.2444925" y3="-10.379435" z3="-1.6376104" weight="1.0" />
+    <additionalPoint x3="-2.958169" y3="-10.538635" z3="-0.6969929" weight="1.0" />
+    <additionalPoint x3="-2.2275057" y3="-10.624487" z3="-1.1287284" weight="1.0" />
     <additionalPoint x3="-2.9490838" y3="-11.037901" z3="-0.6861234" weight="1.0" />
     <additionalPoint x3="-3.8253622" y3="-11.83571" z3="-1.799201" weight="1.0" />
     <additionalPoint x3="-3.744852" y3="-11.070028" z3="-1.7301139" weight="1.0" />
@@ -3739,14 +3860,18 @@
     <additionalPoint x3="-3.738903" y3="-11.070048" z3="-1.7290344" weight="1.0" />
     <additionalPoint x3="-3.5299873" y3="-10.580084" z3="-1.7869587" weight="1.0" />
     <additionalPoint x3="-3.3333817" y3="-10.7569475" z3="-1.8216124" weight="1.0" />
+    <additionalPoint x3="-2.790329" y3="-10.334118" z3="-1.1642714" weight="1.0" />
     <additionalPoint x3="-3.9669151" y3="-10.761684" z3="-1.4912596" weight="1.0" />
     <additionalPoint x3="-3.804263" y3="-10.643978" z3="-1.9235415" weight="1.0" />
+    <additionalPoint x3="-3.7968392" y3="-10.599256" z3="-2.868554" weight="1.0" />
     <additionalPoint x3="-3.6647353" y3="-10.849634" z3="-1.5660607" weight="1.0" />
     <additionalPoint x3="-3.8050852" y3="-10.807809" z3="-1.5986582" weight="1.0" />
     <additionalPoint x3="-3.41682" y3="-10.814727" z3="-2.1966414" weight="1.0" />
     <additionalPoint x3="-3.9135895" y3="-10.892348" z3="-2.0035784" weight="1.0" />
+    <additionalPoint x3="-4.035922" y3="-10.739789" z3="-3.042387" weight="1.0" />
     <additionalPoint x3="-3.658451" y3="-10.900745" z3="-2.0598679" weight="1.0" />
     <additionalPoint x3="-3.816885" y3="-10.8039" z3="-2.3939848" weight="1.0" />
+    <additionalPoint x3="-4.218498" y3="-11.487611" z3="-2.6875877" weight="1.0" />
     <additionalPoint x3="-3.6980495" y3="-11.103506" z3="-2.6499414" weight="1.0" />
     <additionalPoint x3="-3.6556911" y3="-10.790388" z3="-2.283186" weight="1.0" />
     <additionalPoint x3="-3.7692146" y3="-11.069114" z3="-2.3973122" weight="1.0" />
@@ -3760,6 +3885,7 @@
     <additionalPoint x3="-3.4245114" y3="-10.497687" z3="-1.993498" weight="1.0" />
     <additionalPoint x3="-3.2954884" y3="-10.5933075" z3="-1.5208333" weight="1.0" />
     <additionalPoint x3="-3.3223305" y3="-10.76232" z3="-1.677807" weight="1.0" />
+    <additionalPoint x3="-2.5226936" y3="-10.564411" z3="-1.7213554" weight="1.0" />
     <additionalPoint x3="-3.464716" y3="-10.384049" z3="-1.5775936" weight="1.0" />
     <additionalPoint x3="-3.8423576" y3="-10.795433" z3="-1.4045016" weight="1.0" />
     <additionalPoint x3="-3.589384" y3="-10.734157" z3="-1.6328384" weight="1.0" />
@@ -3777,12 +3903,16 @@
     <additionalPoint x3="-3.3505344" y3="-10.552919" z3="-2.5537715" weight="1.0" />
     <additionalPoint x3="-3.691084" y3="-10.845362" z3="-1.7844605" weight="1.0" />
     <additionalPoint x3="-3.9057746" y3="-11.0641775" z3="-1.5909139" weight="1.0" />
+    <additionalPoint x3="-4.3421335" y3="-11.610338" z3="-2.3953533" weight="1.0" />
     <additionalPoint x3="-3.206129" y3="-10.3020525" z3="-1.0536327" weight="1.0" />
     <additionalPoint x3="-3.6165972" y3="-10.646913" z3="-1.2454138" weight="1.0" />
     <additionalPoint x3="-3.7858639" y3="-10.436114" z3="-1.5838575" weight="1.0" />
     <additionalPoint x3="-3.8514433" y3="-10.639283" z3="-1.8138285" weight="1.0" />
     <additionalPoint x3="-3.673695" y3="-10.551552" z3="-1.0460367" weight="1.0" />
     <additionalPoint x3="-3.532753" y3="-10.433184" z3="-1.217463" weight="1.0" />
+    <additionalPoint x3="-3.1929288" y3="-10.060434" z3="-0.84284115" weight="1.0" />
+    <additionalPoint x3="-3.2010179" y3="-10.2621155" z3="-1.1122322" weight="1.0" />
+    <additionalPoint x3="-4.2184095" y3="-10.673578" z3="-1.0905032" weight="1.0" />
     <additionalPoint x3="-4.1405473" y3="-10.878011" z3="-1.9958329" weight="1.0" />
     <additionalPoint x3="-3.5044122" y3="-10.983369" z3="-0.7581781" weight="1.0" />
     <additionalPoint x3="-3.6147978" y3="-10.222268" z3="-1.8639612" weight="1.0" />
@@ -3790,10 +3920,13 @@
     <additionalPoint x3="-2.8965392" y3="-10.631217" z3="-0.87125754" weight="1.0" />
     <additionalPoint x3="-3.9308312" y3="-10.745332" z3="-1.6965559" weight="1.0" />
     <additionalPoint x3="-4.119047" y3="-11.662706" z3="-1.6794186" weight="1.0" />
+    <additionalPoint x3="-4.163213" y3="-10.645721" z3="-2.8645563" weight="1.0" />
     <additionalPoint x3="-4.040756" y3="-10.457483" z3="-2.6795268" weight="1.0" />
+    <additionalPoint x3="-3.7981315" y3="-10.290297" z3="-2.891789" weight="1.0" />
+    <additionalPoint x3="-3.643445" y3="-10.288954" z3="-2.5354328" weight="1.0" />
   </featureCloud>
-  <featureCloud name="PI" featureColor="272799" featureId="PI_4" optional="false" disabled="false" weight="1.0" orig_superfeature="PI[2944]" envPatner="{'ASP_83_A[495,496,497]': [495, 496, 497], 'ASP_129_B[2305,2306,2307]': [2305, 2306, 2307], 'TYR_161_B[2755,2756,2757,2758,2759,2760]': [2755, 2756, 2757, 2758, 2759, 2760]}">
-    <position x3="2.7188832223259625" y3="-17.011682002457" z3="-2.8871944582145783" tolerance="1.5" />
+  <featureCloud name="PI" featureColor="272799" optional="false" disabled="false" weight="1.0" id="feature3">
+    <position x3="2.7191467094199346" y3="-17.01298987581699" z3="-2.882111245200164" />
     <additionalPoint x3="2.5619047" y3="-17.481491" z3="-1.8461151" weight="1.0" />
     <additionalPoint x3="2.258336" y3="-16.848225" z3="-2.1637075" weight="1.0" />
     <additionalPoint x3="1.8033798" y3="-17.557156" z3="-1.7273072" weight="1.0" />
@@ -3811,6 +3944,7 @@
     <additionalPoint x3="2.6456628" y3="-17.155348" z3="-2.2393003" weight="1.0" />
     <additionalPoint x3="2.3245578" y3="-16.539467" z3="-2.6326466" weight="1.0" />
     <additionalPoint x3="1.0963664" y3="-15.828654" z3="-0.13827801" weight="1.0" />
+    <additionalPoint x3="0.72741747" y3="-16.578495" z3="-0.036893845" weight="1.0" />
     <additionalPoint x3="2.5943239" y3="-16.696106" z3="-1.1642046" weight="1.0" />
     <additionalPoint x3="2.311838" y3="-16.142075" z3="-1.081974" weight="1.0" />
     <additionalPoint x3="1.9959201" y3="-16.44471" z3="-1.1398792" weight="1.0" />
@@ -4490,9 +4624,11 @@
     <additionalPoint x3="3.4422734" y3="-17.302773" z3="-2.9560118" weight="1.0" />
     <additionalPoint x3="4.0975537" y3="-18.354351" z3="-1.6857128" weight="1.0" />
     <additionalPoint x3="4.302186" y3="-17.524715" z3="-1.8106108" weight="1.0" />
+    <additionalPoint x3="4.4462814" y3="-18.093876" z3="-1.7703619" weight="1.0" />
     <additionalPoint x3="2.956363" y3="-18.14566" z3="-2.0298395" weight="1.0" />
     <additionalPoint x3="2.54414" y3="-16.813301" z3="-0.69773674" weight="1.0" />
     <additionalPoint x3="3.833216" y3="-18.3027" z3="-1.8878889" weight="1.0" />
+    <additionalPoint x3="3.305459" y3="-17.963512" z3="-0.6324749" weight="1.0" />
     <additionalPoint x3="3.3550878" y3="-17.650635" z3="-1.8624125" weight="1.0" />
     <additionalPoint x3="3.4038148" y3="-17.703356" z3="-1.519289" weight="1.0" />
     <additionalPoint x3="3.9112694" y3="-18.187368" z3="-1.650918" weight="1.0" />
@@ -5016,8 +5152,8 @@
     <additionalPoint x3="2.8248768" y3="-16.990543" z3="-3.9605246" weight="1.0" />
     <additionalPoint x3="1.080471" y3="-17.105936" z3="-1.3536892" weight="1.0" />
   </featureCloud>
-  <featureCloud name="HBA" featureColor="f73e3e" featureId="HBA_5" optional="false" disabled="false" weight="1.0" orig_superfeature="HBA[2926]" envPatner="{'GLY_153_B[2638]': [2638], 'TYR_161_B[2761]': [2761]}">
-    <position x3="2.1829070088959495" y3="-10.629672001588563" z3="-0.06280408513071882" tolerance="0.0" />
+  <featureCloud name="HBA" featureColor="f73e3e" optional="false" disabled="false" weight="1.0" id="feature5">
+    <position x3="2.1673615787615383" y3="-10.632585932692308" z3="-0.06477588180082693" />
     <additionalPoint x3="1.3857952" y3="-10.671195" z3="-1.2424937" weight="1.0" />
     <additionalPoint x3="2.232275" y3="-9.982773" z3="-0.18714145" weight="1.0" />
     <additionalPoint x3="1.8259397" y3="-10.456986" z3="-0.84003794" weight="1.0" />
@@ -5071,6 +5207,7 @@
     <additionalPoint x3="2.1736078" y3="-10.571755" z3="0.10619819" weight="1.0" />
     <additionalPoint x3="2.217393" y3="-10.391486" z3="-0.3961643" weight="1.0" />
     <additionalPoint x3="1.8897051" y3="-10.636883" z3="-0.09520173" weight="1.0" />
+    <additionalPoint x3="2.4297776" y3="-11.596568" z3="-0.5868211" weight="1.0" />
     <additionalPoint x3="2.9130297" y3="-11.159508" z3="-0.18747854" weight="1.0" />
     <additionalPoint x3="2.5714984" y3="-10.836217" z3="-0.06533456" weight="1.0" />
     <additionalPoint x3="2.5986252" y3="-10.891905" z3="-0.44818354" weight="1.0" />
@@ -5115,6 +5252,7 @@
     <additionalPoint x3="2.590129" y3="-10.504838" z3="0.08912277" weight="1.0" />
     <additionalPoint x3="2.1883256" y3="-10.423749" z3="0.58438826" weight="1.0" />
     <additionalPoint x3="2.3244233" y3="-11.129746" z3="-0.08632326" weight="1.0" />
+    <additionalPoint x3="3.1310296" y3="-11.180929" z3="0.60407066" weight="1.0" />
     <additionalPoint x3="2.4573953" y3="-11.263125" z3="-0.38707638" weight="1.0" />
     <additionalPoint x3="2.6591666" y3="-10.256641" z3="0.12118101" weight="1.0" />
     <additionalPoint x3="2.2589142" y3="-10.640633" z3="-0.12246418" weight="1.0" />
@@ -5140,6 +5278,7 @@
     <additionalPoint x3="1.633596" y3="-10.87917" z3="0.016238213" weight="1.0" />
     <additionalPoint x3="2.2069664" y3="-10.404482" z3="-0.15095854" weight="1.0" />
     <additionalPoint x3="2.4423587" y3="-10.835201" z3="-0.332314" weight="1.0" />
+    <additionalPoint x3="2.292857" y3="-11.792056" z3="-0.69285536" weight="1.0" />
     <additionalPoint x3="2.0835247" y3="-10.640685" z3="-0.20601845" weight="1.0" />
     <additionalPoint x3="1.9837631" y3="-11.095188" z3="-0.32870054" weight="1.0" />
     <additionalPoint x3="1.7117374" y3="-10.544269" z3="-0.30029583" weight="1.0" />
@@ -5179,6 +5318,7 @@
     <additionalPoint x3="1.8675036" y3="-10.935479" z3="-0.4110551" weight="1.0" />
     <additionalPoint x3="1.8655872" y3="-10.944501" z3="-0.38414097" weight="1.0" />
     <additionalPoint x3="2.2465878" y3="-10.357442" z3="0.5882487" weight="1.0" />
+    <additionalPoint x3="2.6778204" y3="-11.128996" z3="0.7300215" weight="1.0" />
     <additionalPoint x3="2.3402162" y3="-10.888893" z3="-0.08766842" weight="1.0" />
     <additionalPoint x3="2.6177838" y3="-10.4476185" z3="-0.17471933" weight="1.0" />
     <additionalPoint x3="2.566482" y3="-10.996061" z3="-0.5203428" weight="1.0" />
@@ -5222,6 +5362,7 @@
     <additionalPoint x3="2.5328135" y3="-10.118668" z3="-0.09713602" weight="1.0" />
     <additionalPoint x3="1.7338449" y3="-10.455539" z3="0.278345" weight="1.0" />
     <additionalPoint x3="2.8328395" y3="-10.451414" z3="0.03783202" weight="1.0" />
+    <additionalPoint x3="3.2597716" y3="-10.403445" z3="0.27679706" weight="1.0" />
     <additionalPoint x3="2.607327" y3="-10.36423" z3="0.22582245" weight="1.0" />
     <additionalPoint x3="3.032537" y3="-10.62251" z3="-0.22726679" weight="1.0" />
     <additionalPoint x3="2.8100305" y3="-10.3731" z3="0.039490223" weight="1.0" />
@@ -5235,6 +5376,7 @@
     <additionalPoint x3="2.5767426" y3="-10.187467" z3="0.49097085" weight="1.0" />
     <additionalPoint x3="2.1212242" y3="-10.481557" z3="0.03781116" weight="1.0" />
     <additionalPoint x3="2.3256724" y3="-10.896841" z3="0.32539892" weight="1.0" />
+    <additionalPoint x3="1.1596408" y3="-10.945862" z3="1.7824441" weight="1.0" />
     <additionalPoint x3="1.8056192" y3="-10.582796" z3="0.08994317" weight="1.0" />
     <additionalPoint x3="2.2665179" y3="-10.8083" z3="0.24924862" weight="1.0" />
     <additionalPoint x3="1.8880451" y3="-10.21093" z3="0.3874377" weight="1.0" />
@@ -5281,6 +5423,7 @@
     <additionalPoint x3="2.6024444" y3="-10.2659" z3="0.73151064" weight="1.0" />
     <additionalPoint x3="2.9197018" y3="-10.308821" z3="0.60862947" weight="1.0" />
     <additionalPoint x3="2.6665082" y3="-10.223157" z3="0.33321333" weight="1.0" />
+    <additionalPoint x3="3.2647908" y3="-10.631196" z3="0.93515205" weight="1.0" />
     <additionalPoint x3="2.6735868" y3="-10.574025" z3="0.47973776" weight="1.0" />
     <additionalPoint x3="2.368527" y3="-10.531912" z3="0.5703025" weight="1.0" />
     <additionalPoint x3="2.0509233" y3="-10.473166" z3="0.1583004" weight="1.0" />
@@ -5310,6 +5453,7 @@
     <additionalPoint x3="2.3798985" y3="-10.719318" z3="-0.11946726" weight="1.0" />
     <additionalPoint x3="2.24151" y3="-10.270771" z3="-0.23262501" weight="1.0" />
     <additionalPoint x3="2.5603147" y3="-10.207871" z3="0.3120184" weight="1.0" />
+    <additionalPoint x3="1.45292" y3="-10.14533" z3="0.7439809" weight="1.0" />
     <additionalPoint x3="2.4191647" y3="-10.570727" z3="-0.27936602" weight="1.0" />
     <additionalPoint x3="2.831884" y3="-9.916925" z3="0.5701437" weight="1.0" />
     <additionalPoint x3="2.2396827" y3="-10.084244" z3="-0.32280302" weight="1.0" />
@@ -5334,6 +5478,7 @@
     <additionalPoint x3="2.1790514" y3="-10.3280115" z3="0.28198814" weight="1.0" />
     <additionalPoint x3="2.2440944" y3="-10.885096" z3="-0.48282528" weight="1.0" />
     <additionalPoint x3="2.545741" y3="-10.769805" z3="0.1445036" weight="1.0" />
+    <additionalPoint x3="1.7783456" y3="-11.550489" z3="0.17900181" weight="1.0" />
     <additionalPoint x3="2.379067" y3="-10.915226" z3="-0.4067688" weight="1.0" />
     <additionalPoint x3="2.2482157" y3="-10.751883" z3="-0.3669281" weight="1.0" />
     <additionalPoint x3="2.270701" y3="-10.416442" z3="0.6107569" weight="1.0" />
@@ -5351,6 +5496,7 @@
     <additionalPoint x3="2.2283812" y3="-10.571672" z3="-0.031523705" weight="1.0" />
     <additionalPoint x3="2.5902052" y3="-11.003785" z3="-0.20302677" weight="1.0" />
     <additionalPoint x3="2.6863241" y3="-10.726534" z3="0.07762146" weight="1.0" />
+    <additionalPoint x3="2.8744092" y3="-11.742996" z3="0.26942635" weight="1.0" />
     <additionalPoint x3="2.5066195" y3="-11.136097" z3="-0.042476654" weight="1.0" />
     <additionalPoint x3="2.1547937" y3="-11.13074" z3="-0.122885704" weight="1.0" />
     <additionalPoint x3="1.8855748" y3="-11.040126" z3="-0.28653145" weight="1.0" />
@@ -5564,9 +5710,11 @@
     <additionalPoint x3="2.3987074" y3="-11.12032" z3="0.1713562" weight="1.0" />
     <additionalPoint x3="2.3719616" y3="-10.887838" z3="0.5300684" weight="1.0" />
     <additionalPoint x3="2.6160421" y3="-10.657599" z3="0.4145012" weight="1.0" />
+    <additionalPoint x3="3.1546688" y3="-10.5538225" z3="0.7946167" weight="1.0" />
     <additionalPoint x3="2.544691" y3="-11.133661" z3="0.35051346" weight="1.0" />
     <additionalPoint x3="2.636981" y3="-11.020008" z3="-0.017863274" weight="1.0" />
     <additionalPoint x3="2.4691792" y3="-11.271076" z3="-0.107027054" weight="1.0" />
+    <additionalPoint x3="3.0555048" y3="-11.330511" z3="-0.30096912" weight="1.0" />
     <additionalPoint x3="2.2511826" y3="-11.208011" z3="-0.5363102" weight="1.0" />
     <additionalPoint x3="2.7136784" y3="-11.348256" z3="-0.39461994" weight="1.0" />
     <additionalPoint x3="2.9368267" y3="-10.943428" z3="0.6669283" weight="1.0" />
@@ -5582,6 +5730,7 @@
     <additionalPoint x3="2.4137096" y3="-10.629488" z3="0.25258207" weight="1.0" />
     <additionalPoint x3="2.4872723" y3="-11.080292" z3="0.108786106" weight="1.0" />
     <additionalPoint x3="2.550476" y3="-10.668556" z3="-0.059115887" weight="1.0" />
+    <additionalPoint x3="2.6177464" y3="-11.525889" z3="0.13643217" weight="1.0" />
     <additionalPoint x3="2.3107443" y3="-10.554975" z3="0.18908787" weight="1.0" />
     <additionalPoint x3="2.2583866" y3="-11.300291" z3="-0.00069093704" weight="1.0" />
     <additionalPoint x3="2.0805016" y3="-10.845877" z3="0.0013923645" weight="1.0" />
@@ -5620,8 +5769,10 @@
     <additionalPoint x3="2.680643" y3="-10.834301" z3="0.63745594" weight="1.0" />
     <additionalPoint x3="2.8142796" y3="-10.75954" z3="0.32435226" weight="1.0" />
     <additionalPoint x3="2.9336796" y3="-10.875422" z3="-0.13366175" weight="1.0" />
+    <additionalPoint x3="2.814314" y3="-10.865929" z3="0.9029751" weight="1.0" />
     <additionalPoint x3="2.6877165" y3="-11.046182" z3="0.344553" weight="1.0" />
     <additionalPoint x3="2.4527988" y3="-10.99328" z3="0.16855621" weight="1.0" />
+    <additionalPoint x3="2.7497692" y3="-11.527265" z3="0.39676285" weight="1.0" />
     <additionalPoint x3="2.2957263" y3="-11.2361965" z3="0.3671856" weight="1.0" />
     <additionalPoint x3="2.36339" y3="-10.497426" z3="0.56045914" weight="1.0" />
     <additionalPoint x3="2.4918084" y3="-10.953579" z3="0.2908945" weight="1.0" />
@@ -5655,6 +5806,7 @@
     <additionalPoint x3="2.0143285" y3="-10.54888" z3="0.116996765" weight="1.0" />
     <additionalPoint x3="1.7939215" y3="-10.962533" z3="-0.07104015" weight="1.0" />
     <additionalPoint x3="1.9267149" y3="-11.220027" z3="0.18736553" weight="1.0" />
+    <additionalPoint x3="1.2666268" y3="-11.138502" z3="0.021636963" weight="1.0" />
     <additionalPoint x3="2.3234076" y3="-10.52641" z3="0.16606808" weight="1.0" />
     <additionalPoint x3="2.3789005" y3="-11.168063" z3="-0.13243103" weight="1.0" />
     <additionalPoint x3="2.262774" y3="-11.062883" z3="0.060440063" weight="1.0" />
@@ -5667,6 +5819,7 @@
     <additionalPoint x3="2.5276055" y3="-10.6472645" z3="-0.09797001" weight="1.0" />
     <additionalPoint x3="2.2671108" y3="-10.51079" z3="0.15933228" weight="1.0" />
     <additionalPoint x3="2.2422905" y3="-10.670611" z3="0.0748024" weight="1.0" />
+    <additionalPoint x3="2.2669442" y3="-11.530495" z3="0.5380182" weight="1.0" />
     <additionalPoint x3="2.372603" y3="-10.804876" z3="0.0056581497" weight="1.0" />
     <additionalPoint x3="2.2703457" y3="-10.695913" z3="-0.24601364" weight="1.0" />
     <additionalPoint x3="1.6537726" y3="-10.52345" z3="0.29655266" weight="1.0" />
@@ -5750,6 +5903,7 @@
     <additionalPoint x3="2.1858568" y3="-10.977376" z3="-0.49618912" weight="1.0" />
     <additionalPoint x3="2.3971822" y3="-11.0002775" z3="0.04065323" weight="1.0" />
     <additionalPoint x3="2.1985497" y3="-11.091982" z3="-0.025112152" weight="1.0" />
+    <additionalPoint x3="1.5864525" y3="-11.64238" z3="0.0029239655" weight="1.0" />
     <additionalPoint x3="1.8476866" y3="-10.614499" z3="-0.41371632" weight="1.0" />
     <additionalPoint x3="1.7993829" y3="-10.547897" z3="-0.23318195" weight="1.0" />
     <additionalPoint x3="2.0685837" y3="-10.491121" z3="-0.042325974" weight="1.0" />
@@ -5958,6 +6112,7 @@
     <additionalPoint x3="1.8855093" y3="-10.147364" z3="0.18772984" weight="1.0" />
     <additionalPoint x3="2.096374" y3="-10.303087" z3="-0.0925045" weight="1.0" />
     <additionalPoint x3="1.5677099" y3="-10.893259" z3="-0.19554234" weight="1.0" />
+    <additionalPoint x3="1.5572157" y3="-10.916887" z3="0.5566921" weight="1.0" />
     <additionalPoint x3="1.5609136" y3="-10.414623" z3="0.124147415" weight="1.0" />
     <additionalPoint x3="2.392766" y3="-11.008663" z3="-0.15014362" weight="1.0" />
     <additionalPoint x3="2.375513" y3="-10.321907" z3="-0.111691475" weight="1.0" />
@@ -6109,6 +6264,7 @@
     <additionalPoint x3="2.2301145" y3="-10.649492" z3="-0.30775928" weight="1.0" />
     <additionalPoint x3="1.8771286" y3="-10.189932" z3="-0.013957024" weight="1.0" />
     <additionalPoint x3="2.6878932" y3="-10.221672" z3="0.13886976" weight="1.0" />
+    <additionalPoint x3="2.1485562" y3="-11.362674" z3="0.48871088" weight="1.0" />
     <additionalPoint x3="2.6242223" y3="-10.936218" z3="-0.12498951" weight="1.0" />
     <additionalPoint x3="2.0104833" y3="-11.028171" z3="-0.2955985" weight="1.0" />
     <additionalPoint x3="2.2492535" y3="-10.430664" z3="0.42344284" weight="1.0" />
@@ -6152,15 +6308,33 @@
     <additionalPoint x3="1.5915767" y3="-10.091383" z3="0.2145428" weight="1.0" />
     <additionalPoint x3="1.321632" y3="-10.12244" z3="0.12574911" weight="1.0" />
     <additionalPoint x3="1.1950245" y3="-10.4556265" z3="-0.85356045" weight="1.0" />
+    <additionalPoint x3="0.8794098" y3="-10.219315" z3="0.22985888" weight="1.0" />
+    <additionalPoint x3="0.95160484" y3="-10.843725" z3="-1.2012019" weight="1.0" />
     <additionalPoint x3="1.4802475" y3="-10.211107" z3="-0.28401375" weight="1.0" />
+    <additionalPoint x3="0.62962914" y3="-10.709583" z3="-0.69412136" weight="1.0" />
+    <additionalPoint x3="1.3122387" y3="-10.326168" z3="-1.2304268" weight="1.0" />
+    <additionalPoint x3="0.8919201" y3="-10.464878" z3="-1.6593704" weight="1.0" />
+    <additionalPoint x3="1.3473215" y3="-9.720318" z3="-0.78775024" weight="1.0" />
+    <additionalPoint x3="0.838747" y3="-10.373749" z3="-0.35925674" weight="1.0" />
+    <additionalPoint x3="0.5503416" y3="-10.715271" z3="-1.1498842" weight="1.0" />
+    <additionalPoint x3="0.61467266" y3="-10.692844" z3="-1.1653185" weight="1.0" />
     <additionalPoint x3="1.2534695" y3="-10.3786335" z3="-1.1059551" weight="1.0" />
+    <additionalPoint x3="0.72237873" y3="-10.52824" z3="-0.7266741" weight="1.0" />
+    <additionalPoint x3="1.0552597" y3="-10.735931" z3="-1.1044102" weight="1.0" />
     <additionalPoint x3="1.8763599" y3="-10.129108" z3="-0.6712246" weight="1.0" />
+    <additionalPoint x3="1.229423" y3="-9.122971" z3="0.3997841" weight="1.0" />
     <additionalPoint x3="1.5279341" y3="-9.799147" z3="-0.00754261" weight="1.0" />
+    <additionalPoint x3="1.3175697" y3="-9.605104" z3="-0.24387264" weight="1.0" />
     <additionalPoint x3="1.3419762" y3="-10.226957" z3="0.50601244" weight="1.0" />
+    <additionalPoint x3="0.74644756" y3="-10.259422" z3="-1.2130923" weight="1.0" />
+    <additionalPoint x3="1.0424261" y3="-9.813591" z3="-0.49636078" weight="1.0" />
     <additionalPoint x3="1.6249037" y3="-9.89572" z3="-0.048208714" weight="1.0" />
     <additionalPoint x3="1.5656152" y3="-10.188629" z3="-0.7292166" weight="1.0" />
     <additionalPoint x3="1.709207" y3="-10.472565" z3="-0.6369624" weight="1.0" />
+    <additionalPoint x3="0.9568949" y3="-10.510527" z3="-1.2608585" weight="1.0" />
     <additionalPoint x3="1.7228107" y3="-10.563858" z3="-0.59997416" weight="1.0" />
+    <additionalPoint x3="0.9513993" y3="-10.555813" z3="-1.372088" weight="1.0" />
+    <additionalPoint x3="0.4441414" y3="-10.580866" z3="-0.9015217" weight="1.0" />
     <additionalPoint x3="1.6651049" y3="-9.972174" z3="-0.25587893" weight="1.0" />
     <additionalPoint x3="1.879283" y3="-10.210873" z3="-0.9707761" weight="1.0" />
     <additionalPoint x3="1.5164146" y3="-10.327816" z3="-0.91663074" weight="1.0" />
@@ -6171,6 +6345,7 @@
     <additionalPoint x3="1.8933029" y3="-10.557438" z3="0.10976553" weight="1.0" />
     <additionalPoint x3="1.655745" y3="-9.562954" z3="0.81151485" weight="1.0" />
     <additionalPoint x3="1.7688684" y3="-9.741043" z3="0.82438874" weight="1.0" />
+    <additionalPoint x3="0.49305916" y3="-10.01753" z3="1.2859194" weight="1.0" />
     <additionalPoint x3="1.2853084" y3="-9.644501" z3="-0.11598873" weight="1.0" />
     <additionalPoint x3="1.4522114" y3="-10.159555" z3="-0.43739343" weight="1.0" />
     <additionalPoint x3="1.8732605" y3="-10.4696865" z3="-0.6291895" weight="1.0" />
@@ -6240,6 +6415,7 @@
     <additionalPoint x3="2.3119068" y3="-10.285203" z3="0.21724805" weight="1.0" />
     <additionalPoint x3="2.5297265" y3="-10.191904" z3="0.114444956" weight="1.0" />
     <additionalPoint x3="2.012248" y3="-11.29461" z3="-0.47727066" weight="1.0" />
+    <additionalPoint x3="3.1099625" y3="-10.510572" z3="-0.55934906" weight="1.0" />
     <additionalPoint x3="2.16084" y3="-10.588831" z3="0.103458285" weight="1.0" />
     <additionalPoint x3="2.1158066" y3="-10.273819" z3="-0.18959379" weight="1.0" />
     <additionalPoint x3="2.1229553" y3="-10.375383" z3="-0.4011836" weight="1.0" />
@@ -6267,6 +6443,7 @@
     <additionalPoint x3="2.1953475" y3="-10.619207" z3="-0.37883043" weight="1.0" />
     <additionalPoint x3="2.1707883" y3="-10.509126" z3="0.108468056" weight="1.0" />
     <additionalPoint x3="1.6456687" y3="-10.235046" z3="0.039844036" weight="1.0" />
+    <additionalPoint x3="1.6661196" y3="-9.786023" z3="1.2926741" weight="1.0" />
     <additionalPoint x3="1.968936" y3="-10.384152" z3="0.34549212" weight="1.0" />
     <additionalPoint x3="2.4292922" y3="-10.103677" z3="0.07914209" weight="1.0" />
     <additionalPoint x3="2.236413" y3="-10.249395" z3="0.4969654" weight="1.0" />
@@ -6278,14 +6455,16 @@
     <additionalPoint x3="2.060941" y3="-9.6191" z3="-0.060601234" weight="1.0" />
     <additionalPoint x3="2.0525675" y3="-9.533815" z3="0.47948265" weight="1.0" />
   </featureCloud>
-  <featureCloud name="HBA" featureColor="f73e3e" featureId="HBA_6" optional="false" disabled="false" weight="1.0" orig_superfeature="HBA[2941]" envPatner="{'VAL_155_B[2661]': [2661]}">
-    <position x3="5.0248226265625" y3="-15.066536078125" z3="-0.338938562265625" tolerance="0.0" />
+  <featureCloud name="HBA" featureColor="f73e3e" optional="false" disabled="false" weight="1.0" id="feature6">
+    <position x3="5.041433135820895" y3="-15.07097707462687" z3="-0.3353118876865671" />
     <additionalPoint x3="5.3863916" y3="-15.37845" z3="-0.29085207" weight="1.0" />
     <additionalPoint x3="5.0196867" y3="-15.279974" z3="-0.5078583" weight="1.0" />
     <additionalPoint x3="5.34764" y3="-15.28656" z3="-0.9685106" weight="1.0" />
     <additionalPoint x3="5.278387" y3="-15.670193" z3="-0.7227688" weight="1.0" />
     <additionalPoint x3="5.1897955" y3="-15.323849" z3="-0.4664917" weight="1.0" />
+    <additionalPoint x3="5.792303" y3="-14.737926" z3="0.08820629" weight="1.0" />
     <additionalPoint x3="5.5548077" y3="-15.586872" z3="-0.9601679" weight="1.0" />
+    <additionalPoint x3="5.963932" y3="-15.394453" z3="-1.1370316" weight="1.0" />
     <additionalPoint x3="4.9854326" y3="-14.929131" z3="-0.19743466" weight="1.0" />
     <additionalPoint x3="5.5004196" y3="-15.058368" z3="-0.36271977" weight="1.0" />
     <additionalPoint x3="5.7818937" y3="-15.2869215" z3="-0.5473807" weight="1.0" />
@@ -6343,11 +6522,14 @@
     <additionalPoint x3="5.011329" y3="-15.159664" z3="-0.15425491" weight="1.0" />
     <additionalPoint x3="5.3013277" y3="-15.395568" z3="-0.30134487" weight="1.0" />
     <additionalPoint x3="4.5900555" y3="-14.677133" z3="-0.47010422" weight="1.0" />
+    <additionalPoint x3="4.431137" y3="-15.364776" z3="0.27499682" weight="1.0" />
     <additionalPoint x3="4.834772" y3="-14.838552" z3="-0.74570656" weight="1.0" />
   </featureCloud>
-  <featureCloud name="HBD" featureColor="279927" featureId="HBD_7" optional="false" disabled="false" weight="1.0" orig_superfeature="HBD[2931]" envPatner="{'ASP_83_A[497]': [497], 'HIS_51_B[1129]': [1129], 'ASN_152_B[2630]': [2630], 'TYR_161_B[2761]': [2761], 'GLY_82_A[486]': [486], 'ASP_83_A[496]': [496], 'ASP_75_B[1495]': [1495], 'GLY_151_B[2620]': [2620], 'ASP_75_B[1494]': [1494]}">
-    <position x3="-1.163417235" y3="-12.95376215" z3="0.17892776999999999" tolerance="0.2" />
+  <featureCloud name="HBD" featureColor="279927" optional="false" disabled="false" weight="1.0" id="feature8">
+    <position x3="-1.4586716716666668" y3="-10.708936533333334" z3="-0.7843469859333333" />
+    <additionalPoint x3="-3.4200854" y3="-10.398764" z3="-1.1230296" weight="1.0" />
     <additionalPoint x3="-0.9191356" y3="-12.70129" z3="1.0483515" weight="1.0" />
+    <additionalPoint x3="-1.6070473" y3="-11.348283" z3="1.3419738" weight="1.0" />
     <additionalPoint x3="-2.1812162" y3="-12.38783" z3="-1.2712431" weight="1.0" />
     <additionalPoint x3="-0.66291475" y3="-12.800377" z3="0.24742603" weight="1.0" />
     <additionalPoint x3="-0.87306976" y3="-13.258864" z3="0.6325197" weight="1.0" />
@@ -6356,16 +6538,20 @@
     <additionalPoint x3="-1.0409272" y3="-13.3531685" z3="0.5156741" weight="1.0" />
     <additionalPoint x3="-0.75784874" y3="-13.056361" z3="-0.61792374" weight="1.0" />
     <additionalPoint x3="-1.5243832" y3="-12.770767" z3="-0.24884939" weight="1.0" />
-    <additionalPoint x3="-0.8840189" y3="-12.805298" z3="0.4207344" weight="1.0" />
-  </featureCloud>
-  <featureCloud name="HBD" featureColor="279927" featureId="HBD_8" optional="false" disabled="false" weight="1.0" orig_superfeature="HBD[2931]" envPatner="{'ASP_83_A[497]': [497], 'HIS_51_B[1129]': [1129], 'ASN_152_B[2630]': [2630], 'TYR_161_B[2761]': [2761], 'GLY_82_A[486]': [486], 'ASP_83_A[496]': [496], 'ASP_75_B[1495]': [1495], 'GLY_151_B[2620]': [2620], 'ASP_75_B[1494]': [1494]}">
-    <position x3="-1.4968433353658537" y3="-10.168990109756098" z3="-1.7313560355121949" tolerance="0.2" />
-    <additionalPoint x3="-3.4200854" y3="-10.398764" z3="-1.1230296" weight="1.0" />
     <additionalPoint x3="-3.293274" y3="-11.046735" z3="-0.3724594" weight="1.0" />
     <additionalPoint x3="-3.1191254" y3="-10.577285" z3="0.2952509" weight="1.0" />
     <additionalPoint x3="-3.5420947" y3="-10.746757" z3="-0.30156422" weight="1.0" />
     <additionalPoint x3="-1.5075159" y3="-9.55491" z3="-0.33097076" weight="1.0" />
     <additionalPoint x3="-1.7284245" y3="-9.245318" z3="0.024186134" weight="1.0" />
+    <additionalPoint x3="-0.8840189" y3="-12.805298" z3="0.4207344" weight="1.0" />
+    <additionalPoint x3="-1.2728786" y3="-11.105513" z3="2.0797758" weight="1.0" />
+    <additionalPoint x3="-1.934448" y3="-11.6397915" z3="1.6841335" weight="1.0" />
+    <additionalPoint x3="-1.0659502" y3="-10.273492" z3="2.9301348" weight="1.0" />
+    <additionalPoint x3="-1.6236618" y3="-10.244619" z3="2.584126" weight="1.0" />
+    <additionalPoint x3="-1.9984348" y3="-10.509918" z3="2.8726373" weight="1.0" />
+    <additionalPoint x3="-1.6116183" y3="-10.413829" z3="2.7396154" weight="1.0" />
+    <additionalPoint x3="-2.1209524" y3="-10.1019125" z3="2.9800746" weight="1.0" />
+    <additionalPoint x3="-1.2805598" y3="-10.432618" z3="2.9230294" weight="1.0" />
     <additionalPoint x3="-0.9499403" y3="-9.281097" z3="-0.6032531" weight="1.0" />
     <additionalPoint x3="-1.2800062" y3="-8.180125" z3="-0.2999308" weight="1.0" />
     <additionalPoint x3="-1.2118165" y3="-8.19133" z3="-0.54511666" weight="1.0" />
@@ -6402,8 +6588,123 @@
     <additionalPoint x3="-1.2335892" y3="-11.606679" z3="-3.41121" weight="1.0" />
     <additionalPoint x3="-1.204402" y3="-8.50627" z3="-0.9163183" weight="1.0" />
   </featureCloud>
-  <featureCloud name="HBD" featureColor="279927" featureId="HBD_9" optional="false" disabled="false" weight="1.0" orig_superfeature="HBD[2944]" envPatner="{'ASP_83_A[496]': [496], 'PHE_84_A[505]': [505], 'GLY_153_B[2641]': [2641], 'ASP_129_B[2307]': [2307], 'TYR_130_B[2315]': [2315], 'ASP_83_A[497]': [497], 'ASP_129_B[2306]': [2306]}">
-    <position x3="2.7240347266145832" y3="-17.00362083506944" z3="-2.932224147222222" tolerance="0.2" />
+  <featureCloud name="HBD" featureColor="279927" optional="false" disabled="false" weight="1.0" id="feature9">
+    <position x3="-3.315876946428571" y3="-11.372639223214284" z3="-2.0845490114285714" />
+    <additionalPoint x3="-3.4759386" y3="-12.145832" z3="-3.86977" weight="1.0" />
+    <additionalPoint x3="-3.076369" y3="-11.799407" z3="-3.632671" weight="1.0" />
+    <additionalPoint x3="-2.7528796" y3="-12.181388" z3="-1.2817788" weight="1.0" />
+    <additionalPoint x3="-2.3321376" y3="-11.025588" z3="-0.9813459" weight="1.0" />
+    <additionalPoint x3="-2.718468" y3="-11.164927" z3="-0.69104886" weight="1.0" />
+    <additionalPoint x3="-2.3783646" y3="-10.820673" z3="-1.2137529" weight="1.0" />
+    <additionalPoint x3="-2.910918" y3="-10.370268" z3="-1.4275019" weight="1.0" />
+    <additionalPoint x3="-2.3877835" y3="-10.878896" z3="-1.5000296" weight="1.0" />
+    <additionalPoint x3="-3.4638534" y3="-12.029059" z3="-1.4098923" weight="1.0" />
+    <additionalPoint x3="-2.866807" y3="-12.009629" z3="-0.595999" weight="1.0" />
+    <additionalPoint x3="-3.1783047" y3="-12.38471" z3="-0.95389205" weight="1.0" />
+    <additionalPoint x3="-3.173997" y3="-11.809514" z3="-0.8712461" weight="1.0" />
+    <additionalPoint x3="-3.145585" y3="-12.469607" z3="-0.6543348" weight="1.0" />
+    <additionalPoint x3="-2.8881152" y3="-12.192107" z3="-0.8279604" weight="1.0" />
+    <additionalPoint x3="-3.0661001" y3="-12.277891" z3="-1.433202" weight="1.0" />
+    <additionalPoint x3="-2.1079175" y3="-11.363187" z3="-1.2448066" weight="1.0" />
+    <additionalPoint x3="-2.2400093" y3="-11.159902" z3="-1.0672717" weight="1.0" />
+    <additionalPoint x3="-2.1591084" y3="-11.24209" z3="-1.0665088" weight="1.0" />
+    <additionalPoint x3="-2.5939686" y3="-11.565874" z3="-0.58484685" weight="1.0" />
+    <additionalPoint x3="-2.5182028" y3="-10.695557" z3="-2.054471" weight="1.0" />
+    <additionalPoint x3="-2.1635985" y3="-11.464534" z3="-2.0411062" weight="1.0" />
+    <additionalPoint x3="-2.6482937" y3="-11.988569" z3="-2.4433756" weight="1.0" />
+    <additionalPoint x3="-2.2254598" y3="-11.277205" z3="-1.6958957" weight="1.0" />
+    <additionalPoint x3="-2.7295332" y3="-11.758664" z3="-2.881168" weight="1.0" />
+    <additionalPoint x3="-3.0648165" y3="-11.521025" z3="-3.2194061" weight="1.0" />
+    <additionalPoint x3="-2.985969" y3="-11.320614" z3="-3.6724238" weight="1.0" />
+    <additionalPoint x3="-2.964168" y3="-11.286029" z3="-3.6902637" weight="1.0" />
+    <additionalPoint x3="-2.632729" y3="-11.249308" z3="-3.6477547" weight="1.0" />
+    <additionalPoint x3="-2.8195848" y3="-11.238151" z3="-3.1656647" weight="1.0" />
+    <additionalPoint x3="-2.2260866" y3="-11.848547" z3="-1.758131" weight="1.0" />
+    <additionalPoint x3="-2.6784213" y3="-11.366817" z3="-1.1175919" weight="1.0" />
+    <additionalPoint x3="-2.682518" y3="-11.784168" z3="-0.87726593" weight="1.0" />
+    <additionalPoint x3="-2.8778343" y3="-12.157826" z3="-1.0900307" weight="1.0" />
+    <additionalPoint x3="-2.7863076" y3="-12.370198" z3="-1.288188" weight="1.0" />
+    <additionalPoint x3="-2.5734267" y3="-11.963855" z3="-1.0113964" weight="1.0" />
+    <additionalPoint x3="-2.5189526" y3="-12.243585" z3="-1.4284878" weight="1.0" />
+    <additionalPoint x3="-3.3358214" y3="-12.079423" z3="-1.2866664" weight="1.0" />
+    <additionalPoint x3="-2.3560085" y3="-10.609448" z3="-1.4748647" weight="1.0" />
+    <additionalPoint x3="-2.472363" y3="-10.733033" z3="-1.0113794" weight="1.0" />
+    <additionalPoint x3="-2.7100012" y3="-10.7339945" z3="-2.3743696" weight="1.0" />
+    <additionalPoint x3="-2.4528763" y3="-11.0193405" z3="-2.5437083" weight="1.0" />
+    <additionalPoint x3="-2.691376" y3="-11.324345" z3="-3.2404149" weight="1.0" />
+    <additionalPoint x3="-2.652628" y3="-11.460458" z3="-3.4920459" weight="1.0" />
+    <additionalPoint x3="-3.092619" y3="-10.643297" z3="-3.1608353" weight="1.0" />
+    <additionalPoint x3="-3.6991882" y3="-11.39366" z3="-3.1146107" weight="1.0" />
+    <additionalPoint x3="-3.1549053" y3="-10.650095" z3="-2.9455886" weight="1.0" />
+    <additionalPoint x3="-3.1418552" y3="-11.241108" z3="-3.4274416" weight="1.0" />
+    <additionalPoint x3="-4.4358196" y3="-12.129311" z3="-1.9111919" weight="1.0" />
+    <additionalPoint x3="-3.9242153" y3="-11.43066" z3="-3.0530882" weight="1.0" />
+    <additionalPoint x3="-3.9168406" y3="-11.3174305" z3="-3.0100446" weight="1.0" />
+    <additionalPoint x3="-4.092972" y3="-11.654114" z3="-3.0209036" weight="1.0" />
+    <additionalPoint x3="-3.8912277" y3="-11.628994" z3="-3.4205818" weight="1.0" />
+    <additionalPoint x3="-4.0497427" y3="-11.094387" z3="-3.0963697" weight="1.0" />
+    <additionalPoint x3="-3.8170643" y3="-10.999657" z3="-3.0028105" weight="1.0" />
+    <additionalPoint x3="-3.425418" y3="-11.389784" z3="-3.493246" weight="1.0" />
+    <additionalPoint x3="-3.829011" y3="-11.551323" z3="-3.1591215" weight="1.0" />
+    <additionalPoint x3="-3.6705933" y3="-11.2417145" z3="-3.3014345" weight="1.0" />
+    <additionalPoint x3="-3.077921" y3="-10.519466" z3="-2.5074558" weight="1.0" />
+    <additionalPoint x3="-2.947236" y3="-10.503164" z3="-2.9764328" weight="1.0" />
+    <additionalPoint x3="-2.9726772" y3="-10.926338" z3="-3.4087772" weight="1.0" />
+    <additionalPoint x3="-3.3363008" y3="-10.751907" z3="-3.3062801" weight="1.0" />
+    <additionalPoint x3="-2.8497372" y3="-10.700039" z3="-3.2779412" weight="1.0" />
+    <additionalPoint x3="-3.5896668" y3="-11.234369" z3="-3.2037654" weight="1.0" />
+    <additionalPoint x3="-3.8437967" y3="-11.050598" z3="-3.5871072" weight="1.0" />
+    <additionalPoint x3="-4.5466785" y3="-11.826366" z3="-2.229527" weight="1.0" />
+    <additionalPoint x3="-4.168018" y3="-11.766201" z3="-2.477982" weight="1.0" />
+    <additionalPoint x3="-4.5219293" y3="-12.014118" z3="-2.7222595" weight="1.0" />
+    <additionalPoint x3="-4.665739" y3="-11.956156" z3="-2.1383529" weight="1.0" />
+    <additionalPoint x3="-4.141768" y3="-11.727699" z3="-2.1849718" weight="1.0" />
+    <additionalPoint x3="-4.3604" y3="-12.2224045" z3="-1.8209558" weight="1.0" />
+    <additionalPoint x3="-4.062916" y3="-11.902035" z3="-2.7767425" weight="1.0" />
+    <additionalPoint x3="-4.324092" y3="-11.72723" z3="-2.5823784" weight="1.0" />
+    <additionalPoint x3="-4.335435" y3="-11.790764" z3="-1.8843136" weight="1.0" />
+    <additionalPoint x3="-4.071679" y3="-11.816481" z3="-1.6034236" weight="1.0" />
+    <additionalPoint x3="-4.1599054" y3="-11.601077" z3="-1.210186" weight="1.0" />
+    <additionalPoint x3="-4.237399" y3="-11.723501" z3="-1.6863532" weight="1.0" />
+    <additionalPoint x3="-3.6949377" y3="-12.325794" z3="-2.1873627" weight="1.0" />
+    <additionalPoint x3="-3.756773" y3="-12.475752" z3="-2.1379228" weight="1.0" />
+    <additionalPoint x3="-4.2833824" y3="-11.916674" z3="-2.6810179" weight="1.0" />
+    <additionalPoint x3="-4.0347342" y3="-12.277988" z3="-1.440177" weight="1.0" />
+    <additionalPoint x3="-4.090617" y3="-11.881594" z3="-1.5455232" weight="1.0" />
+    <additionalPoint x3="-4.21988" y3="-11.652077" z3="-1.5834403" weight="1.0" />
+    <additionalPoint x3="-4.612706" y3="-12.027849" z3="-1.8494973" weight="1.0" />
+    <additionalPoint x3="-4.563462" y3="-11.965813" z3="-1.7733904" weight="1.0" />
+    <additionalPoint x3="-4.320534" y3="-12.55266" z3="-2.6148534" weight="1.0" />
+    <additionalPoint x3="-4.312378" y3="-12.205334" z3="-2.8642287" weight="1.0" />
+    <additionalPoint x3="-2.5239258" y3="-10.792653" z3="-2.0028257" weight="1.0" />
+    <additionalPoint x3="-2.270152" y3="-11.116919" z3="-1.9458846" weight="1.0" />
+    <additionalPoint x3="-2.613021" y3="-10.468758" z3="-1.4228535" weight="1.0" />
+    <additionalPoint x3="-2.5087767" y3="-10.333206" z3="-1.3632042" weight="1.0" />
+    <additionalPoint x3="-2.6972456" y3="-10.514506" z3="-1.183003" weight="1.0" />
+    <additionalPoint x3="-2.958169" y3="-10.538635" z3="-0.6969929" weight="1.0" />
+    <additionalPoint x3="-2.2275057" y3="-10.624487" z3="-1.1287284" weight="1.0" />
+    <additionalPoint x3="-2.9490838" y3="-11.037901" z3="-0.6861234" weight="1.0" />
+    <additionalPoint x3="-3.8253622" y3="-11.83571" z3="-1.799201" weight="1.0" />
+    <additionalPoint x3="-2.790329" y3="-10.334118" z3="-1.1642714" weight="1.0" />
+    <additionalPoint x3="-3.7968392" y3="-10.599256" z3="-2.868554" weight="1.0" />
+    <additionalPoint x3="-4.035922" y3="-10.739789" z3="-3.042387" weight="1.0" />
+    <additionalPoint x3="-4.218498" y3="-11.487611" z3="-2.6875877" weight="1.0" />
+    <additionalPoint x3="-2.5226936" y3="-10.564411" z3="-1.7213554" weight="1.0" />
+    <additionalPoint x3="-4.3421335" y3="-11.610338" z3="-2.3953533" weight="1.0" />
+    <additionalPoint x3="-3.206129" y3="-10.3020525" z3="-1.0536327" weight="1.0" />
+    <additionalPoint x3="-3.1929288" y3="-10.060434" z3="-0.84284115" weight="1.0" />
+    <additionalPoint x3="-4.2184095" y3="-10.673578" z3="-1.0905032" weight="1.0" />
+    <additionalPoint x3="-3.5044122" y3="-10.983369" z3="-0.7581781" weight="1.0" />
+    <additionalPoint x3="-3.3877764" y3="-11.349257" z3="-0.9002094" weight="1.0" />
+    <additionalPoint x3="-2.8965392" y3="-10.631217" z3="-0.87125754" weight="1.0" />
+    <additionalPoint x3="-4.119047" y3="-11.662706" z3="-1.6794186" weight="1.0" />
+    <additionalPoint x3="-4.163213" y3="-10.645721" z3="-2.8645563" weight="1.0" />
+    <additionalPoint x3="-4.040756" y3="-10.457483" z3="-2.6795268" weight="1.0" />
+    <additionalPoint x3="-3.7981315" y3="-10.290297" z3="-2.891789" weight="1.0" />
+    <additionalPoint x3="-3.643445" y3="-10.288954" z3="-2.5354328" weight="1.0" />
+  </featureCloud>
+  <featureCloud name="HBD" featureColor="279927" optional="false" disabled="false" weight="1.0" id="feature10">
+    <position x3="2.7240347266145832" y3="-17.00362083506944" z3="-2.932224147222222" />
     <additionalPoint x3="3.3621082" y3="-17.560532" z3="-2.3688235" weight="1.0" />
     <additionalPoint x3="1.8515316" y3="-17.231934" z3="-2.569044" weight="1.0" />
     <additionalPoint x3="3.0010674" y3="-16.587095" z3="-3.0937781" weight="1.0" />
