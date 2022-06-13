@@ -21,6 +21,7 @@ A software developed to recognize target-complex binding modes based on interact
 ## Install
 
 ```$ git clone https://github.com/ChristyLau/thesis.git```
+
 ```$ conda env create -f requirement.yaml```
 
 
