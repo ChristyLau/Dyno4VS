@@ -9,6 +9,7 @@ A software developed to recognize target-complex binding modes based on interact
 ## Requirement
 - cnnclustering
 - sklearn
+- sklearn_extra
 - matplotlib
 - mdanalysis
 - numpy
@@ -16,12 +17,21 @@ A software developed to recognize target-complex binding modes based on interact
 - tqdm
 - os
 
-
-## Output
-
-
 ## Workflow
 This is a two-stage clustering:
 
   - a) Cluster individual superfeatures to obtained states within each interaction (CommonNNClustering)
   - b) Cluster all features together in a categorical state space (K-Medoids)
+
+
+## Output
+For each binding mode
+- Dynophore points in PML file (noise included)
+- Dynophore in PML file (noise dropped)
+- Dynophore and associated points in PML file (noise dropped)
+- MD trajectory
+
+## Analysis
+- Bar code plot: frames belong to each cluster
+- Stacked bar plot: frequency of each state within each superfeature for all binding modes
+- Radar plot: frequency of superfeature for all binding modes
