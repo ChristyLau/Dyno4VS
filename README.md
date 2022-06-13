@@ -17,6 +17,13 @@ A software developed to recognize target-complex binding modes based on interact
 - tqdm
 - os
 
+
+## Install
+
+```$ git clone https://github.com/ChristyLau/thesis.git```
+```$ conda env create -f requirement.yaml```
+
+
 ## Workflow
 This is a two-stage clustering:
 
