@@ -15,7 +15,7 @@ import pandas as pd
 import visualize, parsers, clustering
 
 
-def add_distance_mat(data, include_time = False):
+def add_distance_mat(data, include_time = False, time_prop = 1/3):
     '''A funtion to add distance matrix
        Input:
            data: dict
@@ -23,21 +23,26 @@ def add_distance_mat(data, include_time = False):
            data: dict - data with distance matrix added
        Attribute:
            include_time: bool - True for including time distance in clustering step
+           time_prop: float - temporal contribution to distance metric in CNNclustering
        '''
     max_frame = get_max_frame(data)
-    
     for key in data.keys():
         data_tmp = data[key]["points"]
         if len(data_tmp.shape) == 1:
             data_tmp.reshape(-1, 1)
         distances = pairwise_distances(data_tmp)
-        
-        # add time component in distance matrix
+        points_min, points_max = np.min(distances), np.max(distances)
+        distances = (distances-points_min)/(points_max-points_min)
         if include_time:
-            frames_norm = (np.sqrt(data[key]["frames"])/max_frame).reshape(-1,1)  # why sqrt: flexible conformation shows displacement within local time, not through the whole trajectory
-            frames_distance = pairwise_distances(frames_norm)
-            distances = distances + frames_distance
-            distances = distances/np.max(distances)
+            # add time component in distance matrix
+            frames_distance = pairwise_distances(data[key]["frames"].reshape(-1,1))
+            frames_distance = np.sqrt(frames_distance)
+            frame_min, frame_max = np.min(frames_distance), np.max(frames_distance)
+            frames_distance = (frames_distance-frame_min)/(frame_max-frame_min)
+            
+            distances = distances + time_prop*frames_distance
+            dist_min, dist_max = np.min(distances), np.max(distances)
+            distances = (distances-dist_min)/(dist_max-dist_min)
 
         data[key]["distances"] = distances
     return data
@@ -63,37 +68,31 @@ def add_auto_param(data, include_time = False, info_table = True,
            frequency_cutoff: float - A threshold for superfeature frequency, under this threshold, no parameter will be predicted
            plot: bool - True for plotting the distance histogram
        '''
-    if not include_time:
-        default_cluster_params = {
-            "radius_cutoff": 0.2,
-            "cnn_cutoff": 5,
-            "member_cutoff": 10
-        }
-    else:
-        default_cluster_params = {
-            "radius_cutoff": 0.2,
-            "cnn_cutoff": 20,
-            "member_cutoff": 10
-        }
+    default_cluster_params = {
+        "radius_cutoff": 0.2,
+        "cnn_cutoff": 5,
+        "member_cutoff": 10
+    }
         
     print("*"*100)
     print("Start adding parameter automatically. For feature with fewer points or noisy data, default parameters will be added.")
     print(default_cluster_params)
     print("*"*100)
+    max_frame = get_max_frame(data)
     for i, key in enumerate(data.keys()):
         if not include_time:
             data_tmp = data[key]["points"]
             distances = pairwise_distances(data_tmp)
-            radius_multi = 0.8 # multiplier used in radius calculation
+            
         else:
             '''include time'''
             distances = data[key]["distances"]
-            radius_multi = 0.6 # multiplier used in radius calculation
 
-        min_n_cluster = 0
+        radius_multi = 0.8 # multiplier used in radius calculation
+        cluster_benchmark = 0
         min_freq = 0
         frame_nr = len(distances[0])
-        max_frame = get_max_frame(data)
+        
         radius = 0
         
         weights = np.zeros_like(distances.flatten()) + 1. / distances.flatten().size
@@ -101,12 +100,12 @@ def add_auto_param(data, include_time = False, info_table = True,
         plt.close()
 
         if frame_nr >= frequency_cutoff*max_frame:
-            n, bins = np.histogram(distances, 20)
+            n, bins = np.histogram(distances, 15)
 
             # get the peaks and valleys' position
             x_left = np.min(distances)
             x_right = np.max(distances)
-            interval = (x_right - x_left)/20
+            interval = (x_right - x_left)/15
 
             # predict min cluster number based on distance distribution
             n_cluster = len(argrelmax(n)[0])
@@ -117,7 +116,7 @@ def add_auto_param(data, include_time = False, info_table = True,
                     min_freq = round(min(y[tuple(valley_pos)]), 3)
                     max_freq = round(np.max(y), 3)
 
-                min_n_cluster = n_cluster
+                cluster_benchmark = n_cluster
 
                 max_ = (np.array(argrelmax(n))*interval)[0]
                 min_ = (np.array(argrelmin(n))*interval)[0]
@@ -129,9 +128,9 @@ def add_auto_param(data, include_time = False, info_table = True,
 
                 # predict cnn_cutoff based on points number: 5%*points number
                 if min_freq != 0:
-                    cnn_cutoff_ = round(min(frame_nr*min_freq, frame_nr*0.05, 15))
+                    cnn_cutoff_ = round(min(frame_nr*min_freq, frame_nr*0.05, max_frame*0.003))
                 else:
-                    cnn_cutoff_ = round(min(frame_nr*0.05, 15))
+                    cnn_cutoff_ = round(min(frame_nr*0.05, max_frame*0.003))
 
                 data[key]["params"] = {
                     "radius_cutoff": radius,
@@ -143,7 +142,7 @@ def add_auto_param(data, include_time = False, info_table = True,
         else:
             data[key]["params"] = default_cluster_params
 
-        data[key]["min_cluster_n"] = min_n_cluster
+        data[key]["cluster_benchmark"] = cluster_benchmark
         if plot:
             value = data[key]["params"]["radius_cutoff"]
             plt.figure(figsize=(4,2))
@@ -155,11 +154,11 @@ def add_auto_param(data, include_time = False, info_table = True,
             plt.show()
         # print infor table
         if info_table:
-#             info_table = [min_freq, min_n_cluster, radius, cnn_cutoff]
             print(i, key)
             print("-"*52)
-            print ("{:<15} {:<15} {:<8} {:<15}".format('min_frequency','min_cluster','radius','cnn_cutoff')) # ti
-            print ("{:<15} {:<15} {:<8} {:<15}".format(min_freq, min_n_cluster, data[key]["params"]["radius_cutoff"], data[key]["params"]["cnn_cutoff"]))
+            print ("{:<15} {:<15} {:<8} {:<15}".format('min_frequency',
+                                                       'cluster_benchmark','radius','cnn_cutoff')) # ti
+            print ("{:<15} {:<15} {:<8} {:<15}".format(min_freq, cluster_benchmark, data[key]["params"]["radius_cutoff"], data[key]["params"]["cnn_cutoff"]))
             print("-"*52)
         print(f"Parameter added for {key}")
     return data

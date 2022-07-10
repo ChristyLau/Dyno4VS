@@ -4,6 +4,7 @@
 # In[ ]:
 import matplotlib.pyplot as plt
 from matplotlib import colors
+from scipy.stats.kde import gaussian_kde
 import collections
 import numpy as np
 import pandas as pd
@@ -15,9 +16,32 @@ import compute, parsers
 # from MDAnalysis.analysis import align, rms, diffusionmap
 # get_ipython().run_line_magic('matplotlib', 'inline')
 
+def plot_heatmap(data, dim = 0, figsize = (7,4)):
+    '''Function to plot density distribution
+       Input:
+           data: ndarray
+       Attribute:
+           dim: int - 0 for plotting xy axis, 1 for yz
+           figsize: tuple
+       refered to https://stackoverflow.com/questions/36957149/density-map-heatmaps-in-matplotlib
+    '''
+    x, y = data[:, dim], data[:, dim+1]
+    k = gaussian_kde(np.vstack([x, y]))
+    xi, yi = np.mgrid[x.min():x.max():x.size**0.5*1j,y.min():y.max():y.size**0.5*1j]
+    zi = k(np.vstack([xi.flatten(), yi.flatten()]))
 
+    fig = plt.figure(figsize = figsize)
+    ax1 = fig.add_subplot(111)
+    im1 = ax1.contourf(xi, yi, zi.reshape(xi.shape), alpha=0.5)
+    
+    ax1.set_xlim(x.min(), x.max())
+    ax1.set_ylim(y.min(), y.max())
+    ax1.set_title("Density Heatmap")
+    fig.colorbar(im1,orientation='vertical')
+    plt.show()
+    
 def plot_histogram(distances, i = None, key = None):
-    '''Funtion used in parameter prediction programme for plotting distance distribution for one feature points cloud
+    '''Function used in parameter prediction programme for plotting distance distribution for one feature points cloud
        Input: 
            distances: ndarray - shape: (n, n) distance matrix with pairwise distance of points
        Output:
@@ -53,54 +77,17 @@ def plot_bar_code(model, savefig = False, output_directory = None, n_drop = 0):
 
     plt.scatter(x, model.labels_, marker = "|")
     plt.xlabel("Frame")
-    plt.ylabel("Binding State")
+    plt.ylabel("Binding Mode")
 
     n_cluster = len(np.unique(model.labels_))
     counter = dict(collections.Counter(model.labels_))
     print("There are", n_cluster, "clusters")
-    print(f"Frames count within each binding state: {counter}")
+    print(f"Frames count within each binding mode: {counter}")
 #     plt.show()
     
     if savefig == True:
         plt.savefig(f"{output_directory}bar_code.png", dpi = 200, bbox_inches = "tight")
 
-# def plot_radar(feature_per_state, xmin = 0, xmax = 1):
-#     '''Plot interaction frequency within each cluster as radar plot'''
-#     state_count = len(feature_per_state.keys())
-#     data_length = len(feature_per_state[0])
-#     # split polar coordinates
-#     angles = np.linspace(0, 2*np.pi, data_length, endpoint=False)
-#     labels = [key for key in feature_per_state[0].keys()]
-
-#     feature = []
-#     for i in feature_per_state:
-#         feature_temp = feature_per_state[i]
-#         temp = [i for i in feature_temp.values()]
-#         feature.append(temp)
-
-#     angles = np.concatenate((angles, [angles[0]]))
-#     labels = np.concatenate((labels, [labels[0]]))
-    
-#     fig = plt.figure(figsize=(8, 6), dpi=100)
-    
-#     ax = plt.subplot(111, polar=True)
-#     feature_map = {
-#         k: np.concatenate((feature[k], [feature[k][0]]))
-#         for k in range(state_count)
-#     }
-
-#     colors = ["g", "b", "r", "y", "m", "k", "c"]
-#     for i in feature_map:
-#         feature_temp = feature_map[i]
-#         ax.plot(angles, feature_temp, color = colors[i], label = f"state {i}")
-
-#     ax.set_thetagrids(angles*180/np.pi, labels)
-#     ax.set_theta_zero_location('N')
-#     ax.set_rlim(xmax, xmin)
-#     ax.set_rlabel_position(270)
-#     ax.set_title("interaction frequency of cluters")
-#     plt.legend(bbox_to_anchor = (1.2, 1.05))
-#     plt.show()
 
 def plot_radar(data, model, xmin = 0, xmax = 1, savefig = False, output_directory = None):
     '''Funtion to show frequency of each superfeature among different clusters in a radar form
@@ -116,6 +103,7 @@ def plot_radar(data, model, xmin = 0, xmax = 1, savefig = False, output_director
     feature_per_state = compute.get_feature_freq_per_state(data, model)
     state_count = len(feature_per_state.keys())
     data_length = len(feature_per_state[0])
+    max_frame = compute.get_max_frame(data)
     # split polar coordinates
     angles = np.linspace(0, 2*np.pi, data_length, endpoint=False)
     labels = list(data.keys())
@@ -125,7 +113,9 @@ def plot_radar(data, model, xmin = 0, xmax = 1, savefig = False, output_director
     feature = []
     for i in feature_per_state:
         feature_temp = feature_per_state[i]
-        temp = [i for i in feature_temp.values()]
+        frame_nr = list(model.labels_).count(i)
+        print("frame_nr:", frame_nr)
+        temp = [(i*max_frame)/frame_nr for i in feature_temp.values()]
         feature.append(temp)
     # Generate radar board
     fig=plt.figure(figsize=(10,5))
@@ -165,82 +155,140 @@ def plot_radar(data, model, xmin = 0, xmax = 1, savefig = False, output_director
     colors = ["g", "b", "r", "y", "m", "k", "c"]
     for i in feature_map:
         feature_temp = feature_map[i]
-        ax.plot(angles, feature_temp, color = colors[i], label = f"state {i}")
+        ax.plot(angles, feature_temp, color = colors[i], label = f"mode {i}")
     ax.set_theta_zero_location('N')
     ax.set_rlim(xmax, xmin)
     ax.set_rlabel_position(270)
-    ax.set_title("Interaction frequency of cluters", fontsize = 20)
+    ax.set_title("Interaction Frequency of Binding Modes", fontsize = 13)
     plt.legend(bbox_to_anchor = (1.55, 0.05))
 #     plt.show()
     if savefig == True:
         plt.savefig(f"{output_directory}radar.png", dpi = 200, bbox_inches = "tight")
-
-def plot_2d_wrap_data(data, model, d = 0,  figsize = (7, 7)):
-    '''2D drawing of data after clustering of all superfeatures
+        
+        
+def plot_2d(data, model = None, key = None, figsize = (10, 3.5)):
+    '''2D drawing of original/clustered data of all/selected superfeatures in xy and yz projection.
        Input:
            data: dict
+       Attributes:
            model: KMedoids model object -  e.g. KMedoids(method='pam', metric='manhattan', n_clusters=3)
-       Attribute:
-           d: int - first dimension to start. 0 for without time clustering, 0 or 1 for with time.
+           key: str - superfeature name to observe cluster result
            figsize: tuple
     '''
-    wrap_data = parsers.get_wrap_data(data, model)
+    ax_props = {
+        "xlabel": None,
+        "ylabel": None,
+    }
+    if key != None:
+        fig, Ax = plt.subplots(1, 2,
+                           figsize=figsize)
+        if model != None:
+            for axi, d in enumerate([0, 1], 0):
+                data[key]["clustering"].evaluate(
+                    ax=Ax[axi], dim=(d, d+1),
+                    ax_props=ax_props
+                )
+        else: # model == None, plot original data
+            for axi, d in enumerate([0, 1], 0):
+                data[key]["clustering"].evaluate(
+                    ax=Ax[axi], dim=(d, d+1),
+                    ax_props=ax_props,
+                    original=True
+                )
+        Ax[0].annotate(f"{key}", (0.05, 0.95), xycoords="axes fraction", fontsize=10)
         
-    color_dict = {}
-    for key, data_ in data.items():
-        color = data_['color']
-        color_dict[key] = color
-    superfeatures_colors = {superfeature_id: tuple(colors.hex2color(f"#{color}")) for superfeature_id, color in color_dict.items()}
-    superfeature_name = list(data.keys())
-    fig, ax = plt.subplots(figsize = figsize)
-    for i in range(len(wrap_data)):
-        superfeature_data = wrap_data[i]
-        cluster_data, noise = superfeature_data[superfeature_data[:, 3] != 0], superfeature_data[superfeature_data[:, 3] == 0]
-        color = [list(superfeatures_colors.values())[i]] * len(cluster_data)
-        
-        ax.scatter(cluster_data[:, d], cluster_data[:, d+1], c = color, label = superfeature_name[i], s = 1)
-        ax.scatter(noise[:, d], noise[:, d+1], c = 'grey', s = 1)
-    if d == 0:
-        plt.xlabel("$x$")
-        plt.ylabel("$y$")
     else:
-        plt.xlabel("$y$")
-        plt.ylabel("$z$")
-    ax.set_title("Clustering of all superfeatures")
-    ax.legend(bbox_to_anchor=(1.1, 1.05))
+        color_dict = {}
+        labels = {0: "x", 1: "y", 2: "z"}
+        for key, data_ in data.items():
+            color = data_['color']
+            color_dict[key] = color
+        superfeatures_colors = {superfeature_id: tuple(colors.hex2color(f"#{color}")) for superfeature_id, color in color_dict.items()}
+        superfeature_name = list(data.keys())
+        fig, axs = plt.subplots(1, 2, figsize = figsize)
 
-def plot_3d_wrap_data(data, model, figsize = (10, 10)):
-#     get_ipython().run_line_magic('matplotlib', 'notebook')
+        if model != None:
+            wrap_data = parsers.get_wrap_data(data, model)
+            for d in [0, 1]:
+                for i in range(len(wrap_data)):
+                    superfeature_data = wrap_data[i]
+                    cluster_data, noise = superfeature_data[superfeature_data[:, -2] != 0], superfeature_data[superfeature_data[:, -2] == 0]
+                    color = [list(superfeatures_colors.values())[i]] * len(cluster_data)
+                    axs[d].scatter(cluster_data[:, d], cluster_data[:, d+1], 
+                                      c = color, label = superfeature_name[i], s = 1)
+                    axs[d].scatter(noise[:, d], noise[:, d+1], c = 'grey', s = 1)
+                    axs[d].set(xlabel=f"${labels[d]}$", ylabel=f"${labels[d+1]}$")
+            plt.suptitle("Clustering of all superfeatures")
+
+        else: # model == None, plot original data
+            for d in [0, 1]:
+                for i, key in enumerate(data.keys()):
+                    point_data = data[key]["non_norm"]
+                    color = [list(superfeatures_colors.values())[i]] * len(point_data)
+                    axs[d].scatter(point_data[:, d], point_data[:, d+1], 
+                                      c = color, label = superfeature_name[i], s = 1)
+                    axs[d].set(xlabel=f"${labels[d]}$", ylabel=f"${labels[d+1]}$")
+                    plt.suptitle("Point cloud of all superfeatures")
+        axs[d].legend(bbox_to_anchor=(1.1, 1.05))
+        fig.tight_layout()
+            
+
+def plot_3d(data, model = None, key = None, figsize = (10, 10)):
     '''3D drawing of data after clustering of all superfeatures
        For interactive observation, please run %matplotlib notebook before call this function
        Input:
            data: dict
+       Attributes:
            model: KMedoids model object -  e.g. KMedoids(method='pam', metric='manhattan', n_clusters=3)
-       Attribute:
+           key: str - superfeature name to observe cluster result
            figsize: tuple
        '''
-    wrap_data = parsers.get_wrap_data(data, model)
-        
     fig = plt.figure(figsize = figsize)
     ax = fig.add_subplot(111, projection='3d')
-
-    color_dict = {}
-    for key, data_ in data.items():
-        color = data_['color']
-        color_dict[key] = color
-    superfeatures_colors = {superfeature_id: tuple(colors.hex2color(f"#{color}")) for superfeature_id, color in color_dict.items()}
-    superfeature_name = list(data.keys())
-    for i in range(len(data)):
-        superfeature_data = wrap_data[i]
-        cluster_data, noise = superfeature_data[superfeature_data[:, 3] != 0], superfeature_data[superfeature_data[:, 3] == 0]
-        color = [list(superfeatures_colors.values())[i]] * len(cluster_data)
-
-        ax.scatter(cluster_data[:, 0], cluster_data[:, 1], cluster_data[:, 2], c = color, label = superfeature_name[i], s = 1)
-        ax.scatter(noise[:, 0], noise[:, 1], noise[:, 2], c = 'grey', s = 2)
-    plt.xlabel("$x$")
-    plt.ylabel("$y$")
-    ax.set_title("Clustering of all superfeatures")
-    ax.legend(bbox_to_anchor=(1.1, 1.05))
+    if key != None:
+        superfeature_data = data[key]["non_norm"]
+        if model != None:
+            colormap = {0: "grey", 1: "tab:blue", 2: "tab:orange", 3: "tab:green", 
+                        4: "tab:red", 5: "tab:purple", 6: "tab:brown", 7: "tab:pink"}
+            for state in np.unique(data[key]["clustering"].labels):
+                superfeature_data_state = superfeature_data[np.where(data[key]["clustering"].labels==state)]
+                ax.scatter(superfeature_data_state[:, 0], superfeature_data_state[:, 1], 
+                           superfeature_data_state[:, 2], c = colormap[state], label = state, s = 2)
+            ax.set_title(f"Clustering of {key}")
+            ax.legend(bbox_to_anchor=(1.1, 1.05))
+        else: # model == None, plot original data
+            color  = data[key]["color"]
+            color = colors.hex2color(f"#{color}")
+            ax.scatter(superfeature_data[:, 0], superfeature_data[:, 1], superfeature_data[:, 2],
+                           c = color, label = key, s = 2)
+            ax.set_title(f"Point cloud of {key}")
+            ax.legend(bbox_to_anchor=(1.1, 1.05))
+            
+    else: # key == None, plot all superfeatures
+        color_dict = {}
+        for key, data_ in data.items():
+            color = data_['color']
+            color_dict[key] = color
+        superfeatures_colors = {superfeature_id: tuple(colors.hex2color(f"#{color}")) for superfeature_id, color in color_dict.items()}
+        superfeature_name = list(data.keys())
+        if model != None:
+            wrap_data = parsers.get_wrap_data(data, model)
+            for i in range(len(data)):
+                superfeature_data = wrap_data[i]
+                cluster_data, noise = superfeature_data[superfeature_data[:, -2] != 0], superfeature_data[superfeature_data[:, -2] == 0]
+                color = [list(superfeatures_colors.values())[i]] * len(cluster_data)
+                ax.scatter(cluster_data[:, 0], cluster_data[:, 1], cluster_data[:, 2], c = color, label = superfeature_name[i], s = 2)
+                ax.scatter(noise[:, 0], noise[:, 1], noise[:, 2], c = 'grey', s = 2)
+            ax.set_title("Clustering of all superfeatures")
+        else:  # model == None, plot original data
+            for i, key in enumerate(data.keys()):
+                superfeature_data = data[key]["non_norm"]
+                color = [list(superfeatures_colors.values())[i]] * len(superfeature_data)
+                ax.scatter(superfeature_data[:, 0], superfeature_data[:, 1],
+                           superfeature_data[:, 2], c = color, 
+                           label = superfeature_name[i], s = 2)
+            ax.set_title("Point cloud of all superfeatures")
+        ax.legend(bbox_to_anchor=(1.1, 1.05))
     
         
 def plot_feature_along_traj(data, key, norm = True, three_d = False, figsize = (3, 3), s = 2):
@@ -263,7 +311,7 @@ def plot_feature_along_traj(data, key, norm = True, three_d = False, figsize = (
     if three_d:
         fig = plt.figure(figsize=figsize)
         ax = fig.add_subplot(projection='3d')
-        pic = ax.scatter(x, y, z, c = frames, cmap = "YlOrBr", s = s)
+        pic = ax.scatter(x, y, z, c = frames, cmap = "copper_r", s = s)
         plt.colorbar(pic)
         ax.set_xlabel('x')
         ax.set_ylabel('y')
@@ -274,13 +322,13 @@ def plot_feature_along_traj(data, key, norm = True, three_d = False, figsize = (
         ylim = figsize[0]
         fig = plt.figure(figsize=(xlim, ylim))
         ax1 = fig.add_subplot(121)
-        ax1.scatter(x, y, c = frames, cmap = "YlOrBr")
+        ax1.scatter(x, y, c = frames, cmap = "copper_r")
         ax1.set_xlabel('x')
         ax1.set_ylabel('y')
         ax1.set_title(f"{key}")
         
         ax2 = fig.add_subplot(122)
-        pic = ax2.scatter(y, z, c = frames, cmap = "YlOrBr")
+        pic = ax2.scatter(y, z, c = frames, cmap = "copper_r")
         ax2.set_xlabel('y')
         ax2.set_ylabel('z')
         fig.colorbar(pic)
@@ -322,7 +370,7 @@ def plot_stacked_bar(data, model, savefig = False, output_directory = None):
                 freq_map[k].loc[i] = [0]*len(keys)
         freq_map[k] = freq_map[k].T.to_numpy()
 
-    colors = {0: "w", 1: "cornflowerblue", 2: "limegreen", 3: "lightcyan", 4: "cornsilk", 5: "grainsboro", 6: "orange"}
+    colors = {0: "w", 1: "cornflowerblue", 2: "limegreen", 3: "orange", 4: "cornsilk", 5: "grainsboro", 6: "lightcyan"}
     
     max_cluster_idx = 0
     for j in freq_map:
@@ -335,20 +383,20 @@ def plot_stacked_bar(data, model, savefig = False, output_directory = None):
     plt.subplots_adjust(hspace=0)
 
     for i in range(nr_plt):
-        list(axes)[i].text(0.05, 0.9, f"state {i}", fontsize= 15)
+        list(axes)[i].text(0.05, 0.9, f"binding mode {i}", fontsize= 13)
         list(axes)[i].set_ylim(ymax = 1)
         bottom = 0
         for cluster_idx in range(1, max_cluster_idx):
             if cluster_idx == 1:
                 list(axes)[i].bar(keys, freq_map[i][:,cluster_idx], 
                                   width = 0.5, color = colors[cluster_idx],
-                               label = f"cluster {cluster_idx}"  )
+                               label = f"static state {cluster_idx}"  )
             else: # cluster_idx >= 2
                 bottom = bottom + freq_map[i][:, cluster_idx-1]
                 list(axes)[i].bar(keys, freq_map[i][:,cluster_idx], 
                                   width = 0.5,bottom = bottom, 
                                   color = colors[cluster_idx], 
-                               label = f"cluster {cluster_idx}")
+                               label = f"static state {cluster_idx}")
     list(axes)[nr_plt-1].set_xticklabels(keys, rotation = 45, fontsize = 7, ha='right')
     list(axes)[0].legend()
 #     plt.show()
@@ -356,22 +404,21 @@ def plot_stacked_bar(data, model, savefig = False, output_directory = None):
         plt.savefig(f"{output_directory}stacked_bar.png", dpi = 200, bbox_inches = "tight")
 
         
-def one_line_visualize(data, model, three_d = False, figsize = (7,7)):
+def one_line_visualize(data, model = None, key = None, three_d = False, figsize = (7,7)):
     '''A funtion to show
-           2D plot pharmacophore points cloud after clustering
-           3D plot pharmacophore points cloud after clustering
+           2D plot pharmacophore points cloud before/after clustering
+           3D plot pharmacophore points cloud before/after clustering
         Input:
            data: dict
-           model: KMedoids model object -  e.g. KMedoids(method='pam', metric='manhattan', n_clusters=3)
        Attribute:
+           model: KMedoids model object -  e.g. KMedoids(method='pam', metric='manhattan', n_clusters=3)
            three_d: bool - True for viewing 3D plot
            figsize: tuple
            '''
     if not three_d:
-        for d in [0, 1]:
-            plot_2d_wrap_data(data, model, d = d, figsize = figsize)
+        plot_2d(data, model, key, figsize = figsize)
     else:
-        plot_3d_wrap_data(data, model, figsize = figsize)
+        plot_3d(data, model, key, figsize = figsize)
     
     
 def one_line_analysis(data, model, xmin = 0, xmax = 0.8, savefig = False, output_directory = None):

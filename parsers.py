@@ -30,7 +30,6 @@ def pml_to_dict(dyno_path, n_drop = 0):
                         - <superfeature id>
                           - id : str
                           - color : str
-                          - center : numpy.array
                           - points : list
                             - x : float
                             - y : float
@@ -62,15 +61,6 @@ def pml_to_dict(dyno_path, n_drop = 0):
         superfeature_id = f"{superfeature_feature_name}[{superfeature_atom_numbers}]"
         # Superfeature color
         superfeature_color = feature_cloud.get("featureColor")
-        # Superfeature cloud center
-        center = feature_cloud.find("position")
-        center_data = np.array(
-            [
-                float(center.get("x3")),
-                float(center.get("y3")),
-                float(center.get("z3")),
-            ]
-        )
         # Superfeature cloud points
         additional_points = feature_cloud.findall("additionalPoint")
         additional_points_data = []
@@ -89,7 +79,6 @@ def pml_to_dict(dyno_path, n_drop = 0):
         dynophore_dict[superfeature_id] = {}
         dynophore_dict[superfeature_id]["id"] = superfeature_id
         dynophore_dict[superfeature_id]["color"] = superfeature_color
-        dynophore_dict[superfeature_id]["center"] = center_data
         dynophore_dict[superfeature_id]["points"] = additional_points_data
 
     return dynophore_dict
@@ -217,13 +206,14 @@ def get_env_partner(dyno_path):
     return env_partner_dict
 
 
-def pre_process(dyno_path, include_time = False, n_drop = 0):
+def pre_process(dyno_path, include_time = False, n_drop = 0, time_prop = 1/3):
     '''A fundtion for combined data pre-processing work flow
        Inputs:
            dyno_path: str - Path to dynophore output folder e.g. "./dynophore_out_2022-06-09_00-15-16-HIV/"
        Attributes:
            include_time: bool - True for including time distance
            n_drop: int - Currently not in use. For dropping first few frames of MD trajectory
+           time_prop: float - temporal contribution to distance metric in CNNclustering
        Output:
            data: dict
                  e.g:
@@ -245,7 +235,7 @@ def pre_process(dyno_path, include_time = False, n_drop = 0):
     dynophore_dict = pml_to_dict(dyno_path, n_drop = n_drop)
     env_partner_dict = get_env_partner(dyno_path)
     data = extract_norm(dynophore_dict, env_partner_dict)
-    data = compute.add_distance_mat(data, include_time = include_time)
+    data = compute.add_distance_mat(data, include_time = include_time, time_prop = time_prop)
     max_frame = compute.get_max_frame(data)
     print(f"Data pre-processed: {max_frame} frames in trajectory")
     
@@ -272,7 +262,7 @@ def get_frame_pose_map(data, model):
 
     return frame_pose_map
 
-def get_wrap_data(data, model):
+def get_wrap_data(data, model = None):
     '''
     wrap up information for all clusters of all superfeatures for visualization
     Input:
@@ -280,11 +270,12 @@ def get_wrap_data(data, model):
         model: KMedoids model object -  e.g. KMedoids(method='pam', metric='manhattan', n_clusters=3)
     Output:
         wrap_data: list
-                   e.g: [x, y, z, (frame), label in each superfeature, superfeature_nr, binding_state_nr]
+                   e.g: [x, y, z, (frame), superfeature_nr, label in each superfeature, binding_state_nr]
     '''
     wrap_data = []
-    cluster_frames_map = compute.get_frames_each_cluster(model)
-    frame_pose_map = get_frame_pose_map(data, model)
+#     if model != None:
+#         cluster_frames_map = compute.get_frames_each_cluster(model)
+#         frame_pose_map = get_frame_pose_map(data, model)
 
     for i, key in enumerate(data.keys()):
         final_data = data[key]["non_norm"]
@@ -292,16 +283,16 @@ def get_wrap_data(data, model):
         cluster_temp = data[key]["clustering"]
         label = cluster_temp._labels.labels
         superfeature_nr = np.array([i] * len(final_data))
-        
-        binding_state_nr = []
-        for frame in feature_frames:
-            binding_state_nr_tmp = frame_pose_map[frame]
-            binding_state_nr.append(binding_state_nr_tmp)
-        binding_state_nr = np.array(binding_state_nr)
+        final_data = np.column_stack((final_data, superfeature_nr, label))
+        if model != None:
+            binding_state_nr = []
+            frame_pose_map = get_frame_pose_map(data, model)
+            for frame in feature_frames:
+                binding_state_nr_tmp = frame_pose_map[frame]
+                binding_state_nr.append(binding_state_nr_tmp)
+            binding_state_nr = np.array(binding_state_nr)
+            final_data = np.column_stack((final_data, binding_state_nr))
 
-        final_data = np.column_stack((final_data, label))
-        final_data = np.column_stack((final_data, superfeature_nr, binding_state_nr))
-        
         wrap_data.append(final_data)
     
     return wrap_data

@@ -35,19 +35,14 @@ def do_cluster(data, include_time = False, redo = None, plot = True, info_table 
     ax_props = {
         "xlabel": None,
         "ylabel": None,
+        "xticks": [],
+        "yticks": []
     }
-    if not include_time:
-        default_cluster_params = {
-            "radius_cutoff": 0.2,
-            "cnn_cutoff": 5,
-            "member_cutoff": 10
-        }
-    else:
-        default_cluster_params = {
-            "radius_cutoff": 0.2,
-            "cnn_cutoff": 20,
-            "member_cutoff": 10
-        }
+    default_cluster_params = {
+        "radius_cutoff": 0.2,
+        "cnn_cutoff": 5,
+        "member_cutoff": 10
+    }
     need_redo = {}
     
     if not redo:
@@ -91,8 +86,8 @@ def do_cluster(data, include_time = False, redo = None, plot = True, info_table 
             ratio_noise = list(data[fkey]["clustering"]._summary.to_DataFrame()["ratio_noise"])[-1]
 
             reasons = []
-            if n_cluster_real < data[fkey]['min_cluster_n'] or ratio_noise == 1:
-                print(f"Discrepancy in predicted cluster number! Now: {n_cluster_real}  Expected: {data[fkey]['min_cluster_n']}")
+            if n_cluster_real < data[fkey]['cluster_benchmark'] or n_cluster_real > 1 + data[fkey]['cluster_benchmark'] or ratio_noise == 1:
+                print(f"Discrepancy in predicted cluster number! Now: {n_cluster_real}  Expected: {data[fkey]['cluster_benchmark']}")
                 reasons.append("n_clusters")
             if ratio_noise > 0.05 and ratio_noise < 1:
                 print("Noise over 5%!")
@@ -118,7 +113,7 @@ def do_cluster(data, include_time = False, redo = None, plot = True, info_table 
 def parameter_scan(data, key, 
                    r_start = 0.05, r_end = 0.3, r_step = 0.05, 
                    c_start = 0, c_end = 50, c_step = 2, 
-                   include_time = False, min_cluster_n = None,
+                   include_time = False, cluster_benchmark = None,
                    plot = False, info_table = False):
     '''Parameter scan for data of specific superfeature. If suitable params found, replace automatically.
        Input:
@@ -154,19 +149,17 @@ def parameter_scan(data, key,
         else:
             data[key]["clustering"] = cluster.Clustering(data[key]["points"])
             cluster_ = data[key]["clustering"]
-    if not min_cluster_n:
-        min_cluster_n = data[key]["min_cluster_n"]
+    if not cluster_benchmark:
+        cluster_benchmark = data[key]["cluster_benchmark"]
     orig_radius_cutoff, orig_cnn_cutoff, orig_member_cutoff = data[key]["params"]["radius_cutoff"], data[key]["params"]["cnn_cutoff"], data[key]["params"]["member_cutoff"]
     for r in tqdm(np.arange(r_start, r_end, r_step)):
         for c in np.arange(c_start, c_end, c_step):
             # fit from pre-calculated distances
             cluster_.fit(r, c, member_cutoff=10, v=False)
-#             data[key]["clustering"].fit(r, c, member_cutoff=10, v=False)
     
     # Get summary sorted by number of identified clusters
     df = cluster_.summary.to_DataFrame()
-#     df = data[key]["clustering"].summary.to_DataFrame()
-    df = df[(df.n_clusters == min_cluster_n)]
+    df = df[(df.n_clusters == cluster_benchmark)]
     df = df[(df.ratio_noise > 0)].sort_values(["ratio_noise", "radius_cutoff"])
     try:
         radius_cutoff, cnn_cutoff, ratio_noise = df.iloc[0][["radius_cutoff", "cnn_cutoff", "ratio_noise"]]
@@ -222,9 +215,12 @@ def params_adjust(data, need_redo, include_time = False, repeat = 10, plot = Fal
         if reasons == ["noise"]:
             time = 0
             print("Start adjusting cnn_cutoff")
-            while time < repeat and cnn_cutoff >= 3 and fix_status == False:  # if number of clusters wrong or noise is decreased, no need to continue running
+            while time < repeat and cnn_cutoff >= 1 and fix_status == False:  # if number of clusters wrong or noise is decreased, no need to continue running
+                if cnn_cutoff == 1:
+                    cnn_cutoff = 0
+                else:
+                    cnn_cutoff -= 2
                 time += 1
-                cnn_cutoff -= 2
                 data[key]["params"]['cnn_cutoff'] = cnn_cutoff
                 data_temp, need_redo_temp = do_cluster(data, include_time = include_time, 
                                                        plot = plot, redo = [key], info_table = info_table)
@@ -358,10 +354,14 @@ def binding_state_cluster(data, n_clusters = None, print_center_features = False
     '''
     state_matrix = compute.get_state_matrix(data)
     one_hot_matrix = compute.get_adjusted_one_hot_encoding(data, compute.get_one_hot_encoding(state_matrix))
-    
+#     one_hot_matrix = compute.get_one_hot_encoding(state_matrix)
     if n_clusters == None:
         get_binding_pose_cluster_inertia(one_hot_matrix)
-        n_clusters = int(input("Please give cluster number: "))
+        try:
+            n_clusters = int(input("Please give cluster number: "))
+        except:
+            n_clusters = 3
+            print("Invalid input! Default cluster number 3 is taken.")
     model = skecluster.KMedoids(n_clusters = n_clusters, metric = "manhattan", method = "pam")
     model.fit(one_hot_matrix)
     model.cluster_centers_
@@ -429,7 +429,7 @@ def auto_cluster(data, include_time = False, only_result = False,
 
 
 def one_line_to_result(dyno_path, pdb_path, dcd_path, output_directory, 
-                       include_time = False, data = None, output = True, only_result = False, 
+                       include_time = False, time_prop = 1/3, data = None, output = True, only_result = False, 
                        info_table = True, frequency_cutoff_param = 0.06, plot_search_parameter = True, 
                        plot_clustering = False, info_clustering = False, 
                        plot_params_adjust = False, repeat = 10, redo = None, 
@@ -443,6 +443,7 @@ def one_line_to_result(dyno_path, pdb_path, dcd_path, output_directory,
            output_directory: str - Path to output directory
        Attributes:
            include_time: bool - True for adding time component
+           time_prop: float - temporal contribution to distance metric in CNNclustering
            data: dict (optional) - obtained from data pre-processing step
            output: bool - True for write out the trajectories, pharmacophores
            only_result:bool - True for only viewing final cluter result
@@ -465,7 +466,7 @@ def one_line_to_result(dyno_path, pdb_path, dcd_path, output_directory,
     if data != None:
         data, need_redo = do_cluster(data, include_time = include_time, redo = redo, plot = True, info_table = True)
     else:
-        data = parsers.pre_process(dyno_path, include_time = include_time)
+        data = parsers.pre_process(dyno_path, include_time = include_time, time_prop = time_prop)
         auto_cluster(data, include_time = include_time, only_result = only_result, 
                                 info_table = info_table, frequency_cutoff = frequency_cutoff_param, 
                                 plot_search_parameter = plot_search_parameter, 
@@ -475,9 +476,15 @@ def one_line_to_result(dyno_path, pdb_path, dcd_path, output_directory,
     model = binding_state_cluster(data, n_clusters = n_clusters, print_center_features = print_center_features)
     if output == True:
         write.write_points(data, model, output_directory = output_directory)
-        write.write_pharmacophore(data, model, output_directory = output_directory, include_time = include_time, 
+        write.write_pharmacophore(data, output_directory = output_directory, include_time = include_time, 
+                                  frequency_cutoff = frequency_cutoff, noise_cutoff = 0., combine = False,
+                                 name = "stage_1_phamacophore")
+        write.write_pharmacophore(data, output_directory = output_directory, include_time = include_time, 
+                                  frequency_cutoff = frequency_cutoff, noise_cutoff = 0., combine = True,
+                                 name = "stage_1_phamacophore" )
+        write.write_pharmacophore(data, output_directory = output_directory, model = model, include_time = include_time, 
                                   frequency_cutoff = frequency_cutoff, noise_cutoff = noise_cutoff, combine = False)
-        write.write_pharmacophore(data, model, output_directory = output_directory, include_time = include_time, 
+        write.write_pharmacophore(data, output_directory = output_directory, model = model, include_time = include_time, 
                                   frequency_cutoff = frequency_cutoff, noise_cutoff =noise_cutoff, combine = True)
         write.split_trajectory(model, pdb_path = pdb_path, dcd_path = dcd_path,output_directory = output_directory)
     return data, model

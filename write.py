@@ -39,14 +39,14 @@ def split_trajectory(model, pdb_path, dcd_path, output_directory, n_drop = 0):
         
 
 
-def extract_superfeature(data, wrap_data, pose_nr = 0, 
-                         include_time = False, frequency_cutoff = None, noise_cutoff = 0.2):
+def extract_superfeature(data, model = None, pose_nr = -1, 
+                         include_time = False, frequency_cutoff = None, noise_cutoff = 0.1):
     '''
     Extract new superfeature after clustering of given binding pose. 
     Also return wrap_data according to new superfeatures for writing into LigandScout file.
     Inputs: 
         data: dict
-        wrap_data: list - list of ndarray contain [center_x, center_y, center_z, radius, superfeatures_name, cluster_nr] for each frame per superfeature
+        model: KMedoids model object -  e.g. KMedoids(method='pam', metric='manhattan', n_clusters=3)
     Output:
         (superfeature, points_new_sp) : tuple
             superfeature: list
@@ -86,13 +86,13 @@ def extract_superfeature(data, wrap_data, pose_nr = 0,
         Direction of AR is meaningless, only shows the center of AR.
     '''
     if frequency_cutoff == None:
-        frequency_cutoff = {'H': 0.03, 'AR': 0.005,
-                            'HBD': 0.03, 'HBA': 0.03,
-                            'PI': 0.03, 'NI': 0.03}
-    
-    col_nr = 3
+        frequency_cutoff = {'H': 0.0, 'AR': 0.0,
+                            'HBD': 0.0, 'HBA': 0.0,
+                            'PI': 0.0, 'NI': 0.0}
+    wrap_data = parsers.get_wrap_data(data, model)
+    state_col_idx = 4
     if include_time:
-        col_nr = 4
+        state_col_idx = 5
         
     superfeature = []
     points_new_sp = []
@@ -105,20 +105,20 @@ def extract_superfeature(data, wrap_data, pose_nr = 0,
         color = list(data.items())[idx_sp][1]["color"]
         env_partner = list(data.items())[idx_sp][1]["env_partner"]
         superfeature_data = wrap_data[idx_sp]
-        superfeature_data = superfeature_data[superfeature_data[:, -1] == pose_nr]
-        superfeature_data = superfeature_data[superfeature_data[:, col_nr] != 0] # exclude noise
+        if model != None:
+            superfeature_data = superfeature_data[superfeature_data[:, -1] == pose_nr]
         
         frame_nr = len(superfeature_data)  # how many frames are not noises
         feature = parsers.get_feature_name(superfeatures[idx_sp])
         freq_cutoff = frequency_cutoff[feature]
 
         try:
-            cluster_nr = np.unique(superfeature_data[:, col_nr])[-1]  # cluster number in one superfeature
+            cluster_nr = np.unique(superfeature_data[:, state_col_idx])[-1]  # cluster number in one superfeature
         except:
             cluster_nr = 0
         if len(superfeature_data) > max_frame * freq_cutoff: # the frequency observed in interact_table
-            while cluster_nr > 0: # do not write out noise, whose label is 0
-                cluster_data = superfeature_data[superfeature_data[:, col_nr] == (cluster_nr)]
+            while cluster_nr > 0: # exclude noise
+                cluster_data = superfeature_data[superfeature_data[:, state_col_idx] == (cluster_nr)]
                 if len(cluster_data) > frame_nr * noise_cutoff:
                     center_coord = compute.get_geo_center(cluster_data)
                     if feature in ['H', 'NI', 'PI', 'AR']:
@@ -326,7 +326,7 @@ def pml_pharmacophore(features, points_new_sp, output_directory, name, combine =
     return
 
 
-def write_pharmacophore(data, model, output_directory, include_time = False, frequency_cutoff = None, 
+def write_pharmacophore(data, output_directory, model = None, include_time = False, frequency_cutoff = None, 
                         noise_cutoff = 0.3, name = "cluster_pharmacophore", combine = True):
     """ This function writes out pharmacophores with or without points cloud
        Inputs:
@@ -341,20 +341,30 @@ def write_pharmacophore(data, model, output_directory, include_time = False, fre
            combine: bool - True for writing condense pharmacophore and point together
                            False for only writing condense pharmacophore
     """
+    loop = 1
     wrap_data = parsers.get_wrap_data(data, model)
     if combine:
         name = name + "_points"
-    for cluster_id in range(np.max(model.labels_)+1):
-        features, points_new_sp = extract_superfeature(data, wrap_data, pose_nr = cluster_id, include_time = False, 
+    if model != None:
+        loop = np.max(model.labels_) + 1    
+    print("noise_cutoff:", noise_cutoff)
+    for cluster_id in range(loop):
+        features, points_new_sp = extract_superfeature(data, model, pose_nr = cluster_id, include_time = False, 
                                     frequency_cutoff = frequency_cutoff, noise_cutoff = float(noise_cutoff))
         pml_pharmacophore(features, points_new_sp, output_directory, f"{name}_{cluster_id}", combine = combine)
         if combine == True:
-            print(f"Pharmacophore and associated points of cluster {cluster_id} written to {output_directory}")
+            if model != None:
+                print(f"Pharmacophore and associated points of cluster {cluster_id} written to {output_directory}")
+            else:
+                print(f"Pharmacophore and associated points at stage 1 written to {output_directory}")
         else:
-            print(f"Pharmacophore of cluster {cluster_id} written to {output_directory}")
+            if model != None:
+                print(f"Pharmacophore of cluster {cluster_id} written to {output_directory}")
+            else:
+                print(f"Pharmacophore at stage 1 written to {output_directory}")
     return
 
-
+###################################### Currently not in use ###############################################
 def write_points(data, model, output_directory):
     '''This function writes out pharmacophores points in each cluster
        Inputs:
