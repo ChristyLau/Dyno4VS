@@ -114,7 +114,6 @@ def plot_radar(data, model, xmin = 0, xmax = 1, savefig = False, output_director
     for i in feature_per_state:
         feature_temp = feature_per_state[i]
         frame_nr = list(model.labels_).count(i)
-        print("frame_nr:", frame_nr)
         temp = [(i*max_frame)/frame_nr for i in feature_temp.values()]
         feature.append(temp)
     # Generate radar board
