@@ -38,11 +38,19 @@ This is a two-stage clustering:
 For each binding mode (mode 2 as an example)
 - Dynophore points in PML file (noise included)
 
+<img height="200" src="https://github.com/ChristyLau/thesis/blob/main/fig/points_with_noise.png"/>
+
+
 ![image](https://github.com/ChristyLau/thesis/blob/main/fig/points_with_noise.png) 
 - Dynophore in PML file (noise dropped)
 
+<img height="200" src="https://github.com/ChristyLau/thesis/blob/main/fig/dyno_without_noise.png"/>
+
+
 ![image](https://github.com/ChristyLau/thesis/blob/main/fig/dyno_without_noise.png) 
 - Dynophore and associated points in PML file (noise dropped)
+
+<img height="200" src="https://github.com/ChristyLau/thesis/blob/main/fig/dyno%2Bpoints_without_noise.png"/>
 
 ![image](https://github.com/ChristyLau/thesis/blob/main/fig/dyno%2Bpoints_without_noise.png)  
 - MD trajectory
