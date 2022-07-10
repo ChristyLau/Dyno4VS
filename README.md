@@ -2,7 +2,7 @@
 
 A software developed to recognize target-complex binding modes based on interaction pattern recorded in dynamic pharmacophores. Condense pharmacophone and associated dynophore points will be written out, as well as the MD trajectory for each binding mode.
 
-- **Demo:** [ZIKV_Protease](https://nbviewer.org/github/ChristyLau/thesis/blob/main/Demo-ZIKV-time.ipynb)
+- **Demo:** [ZIKV_Protease](https://nbviewer.org/github/ChristyLau/thesis/blob/main/Demo_ZIKV_time.ipynb)
 
 
 
