@@ -20,9 +20,9 @@ A software developed to recognize target-complex binding modes based on interact
 
 ## Install
 
-```$ git clone https://github.com/ChristyLau/thesis.git```
+```$ git clone https://github.com/ChristyLau/Dyno4VS.git```
 
-```$ cd thesis```
+```$ cd Dyno4VS```
 
 ```$ conda env update --file requirement.yaml```
 
